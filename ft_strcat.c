@@ -24,7 +24,7 @@ char	*ft_strcat(char *s1, const char *s2)
 		index++;
 		offset--;
 	}
-	while (s1[index] && s2[index + offset])
+	while (s2[index + offset])
 	{
 		s1[index] = s2[index + offset];
 		index++;
