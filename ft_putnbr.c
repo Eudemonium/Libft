@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 09:52:10 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/11 09:52:11 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/11 13:25:57 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_putnbr(int n)
 {
-	char num;
-
-	num = '0' + n;
-	ft_putnbr_fd(num, 1);
+	ft_putnbr_fd(n, 1);
 }
-
