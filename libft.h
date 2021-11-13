@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/13 15:07:36 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/13 15:08:12 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int				ft_isdigit(int c);
 int				ft_isalnum(int c);
 int				ft_isprint(int c);
 
-int				ft_strlen(char *str);
+size_t			ft_strlen(char *str);
 
 void			ft_putchar_fd(char c, int fd);
 void			ft_putchar(char c);

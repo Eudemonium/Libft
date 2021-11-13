@@ -6,15 +6,15 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:30:34 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/01 16:33:10 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/13 15:06:39 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	int	counter;
+	size_t	counter;
 
 	while (str[counter])
 	{
