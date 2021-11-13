@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/13 15:08:12 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/13 15:12:34 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strdup(const char *s1);
 char			*ft_strcat(char *s1, const char *s2);
+char			*ft_strncat(char *s1, const char *s2, size_t n);
+size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 int				ft_atoi(const char *str);
 int				ft_isalpha(int c);

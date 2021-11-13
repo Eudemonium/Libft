@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:21:18 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/11 11:27:58 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/13 15:12:20 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	int	index;
 
