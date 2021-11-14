@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:19:52 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/13 15:29:31 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/14 21:58:31 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	index;
+	char	*ptr;
 
-	while (s[index])
+	ptr = (char *)s;
+	while (ptr)
 	{
-		if (s[index] == c)
-			return (s[index]);
+		if (ptr[0] == c)
+			return (ptr);
+		ptr++;
 	}
 	if (c == '\0')
-		return (s[index]);
+		return (ptr);
 	return (NULL);
 }
