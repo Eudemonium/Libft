@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/15 11:45:54 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/16 10:17:29 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int				ft_isdigit(int c);
 int				ft_isalnum(int c);
 int				ft_isprint(int c);
 int				ft_isascii(int c);
+int				ft_toupper(int c);
+int				ft_tolower(int c);
 
 size_t			ft_strlen(char *str);
 

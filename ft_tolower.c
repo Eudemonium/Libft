@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:12:25 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/10 16:13:41 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/16 10:24:22 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_tolower(int c)
 {
-	if (c >= 'a' && c <= 'z')
+	if (c >= 'A' && c <= 'Z')
 		return (c + 'a' - 'A');
 	return (c);
 }
