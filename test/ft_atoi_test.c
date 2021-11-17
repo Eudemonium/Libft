@@ -1,17 +1,55 @@
 #include "../libft.h"
 #include "libft_test.h"
 
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s\"\n", test); }
+
 int	main(void)
 {
-	printf("test     %s INT_MIN\nft_atoi: %d\n   atoi: %d\n", INT_MIN_C, \
-			ft_atoi(INT_MIN_C), atoi(INT_MIN_C));
-	printf("test     %s INT_MAX\nft_atoi: %d\n   atoi: %d\n", INT_MAX_C, \
-			ft_atoi(INT_MAX_C), atoi(INT_MAX_C));
-	printf("test     %s INT_MIN - 1\nft_atoi: %d\n   atoi: %d\n", "-2147483649", \
-			ft_atoi("-2147483649"), atoi("-2147483649"));
-	printf("test     %s INT_MAX + 1\nft_atoi: %d\n   atoi: %d\n", "2147483648", \
-			ft_atoi("2147483648"), atoi("2147483648"));
-	printf("test     %s INT_MAX + 2\nft_atoi: %d\n   atoi: %d\n", "2147483649", \
-			ft_atoi("2147483649"), atoi("2147483649"));
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_atoi";
+	printf("===== %s =====\n", func);
+	{
+		char	*string = INT_MIN_C;
+		int		expect = atoi(string);
+		int		actual = ft_atoi(string);
+		assert(expect == actual, string);
+	}
+	{
+		char	*string = INT_MAX_C;
+		int		expect = atoi(string);
+		int		actual = ft_atoi(string);
+		assert(expect == actual, string);
+	}
+	{
+		char	*string = "-2147483649";
+		int		expect = atoi(string);
+		int		actual = ft_atoi(string);
+		assert(expect == actual, string);
+	}
+	{
+		char	*string = "2147483648";
+		int		expect = atoi(string);
+		int		actual = ft_atoi(string);
+		assert(expect == actual, string);
+	}
+	{
+		char	*string = "   \v-+2147483648";
+		int		expect = atoi(string);
+		int		actual = ft_atoi(string);
+		assert(expect == actual, string);
+	}
+	{
+		char	*string = "\t\r\n--2147483648";
+		int		expect = atoi(string);
+		int		actual = ft_atoi(string);
+		assert(expect == actual, string);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (0);
 }
