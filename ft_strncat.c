@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 10:49:16 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/11 10:58:19 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/17 21:09:37 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int	index;
-	int	offset;
+	size_t	index;
+	size_t	offset;
 
 	index = 0;
 	offset = 0;

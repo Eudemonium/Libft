@@ -6,13 +6,13 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 11:10:14 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/10 14:58:27 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/17 21:01:42 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*init_numstr(int num, int len)
+char	*init_numstr(int len)
 {
 	char	*str;
 
@@ -31,7 +31,7 @@ char	*ft_itoa(int n)
 	int		place;
 
 	len = ft_intlen(n);
-	str = init_numstr(n, len);
+	str = init_numstr(len);
 	if (str == NULL)
 		return (NULL);
 	index = 0;

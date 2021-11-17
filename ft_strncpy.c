@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 07:22:43 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/11 07:32:37 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/17 21:10:28 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	int	index;
+	size_t	index;
 
 	if (src == NULL)
 		return (NULL);

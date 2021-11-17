@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:25:19 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/13 14:55:05 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/17 21:07:53 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*ptr_s;
-	size_t			index;
+	size_t			count;
 
-	ptr_s = s;
-	while (index < n)
+	ptr_s = (unsigned char *)s;
+	count = 0;
+	while (count < n)
 	{
-		if (ptr_s[index] == c)
+		if (ptr_s[0] == c)
 		{
-			return (ptr_s[index]);
+			return (ptr_s);
 		}
-		index++;
+		count++;
+		ptr_s++;
 	}
 	return (NULL);
 }

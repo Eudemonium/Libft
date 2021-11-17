@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 07:34:08 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/11 10:58:35 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/17 21:05:11 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	return (ft_strncat(s1, s2, ft_strlen(s2)));
+	return (ft_strncat(s1, s2, ft_strlen((char *)s2)));
 }
