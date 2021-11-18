@@ -1,15 +1,67 @@
-#include "../libft.h"
+#include "libft.h"
 #include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: \"%c\"\n", test); }
 
 int	main(void)
 {
-	printf("###: isalpha() ft_isalpha()\n");
-	printf("000: %d %d\n", isalpha(000), ft_isalpha(000));
-	printf("177: %d %d\n", isalpha(177), ft_isalpha(177));
-	printf("55:  %d %d\n", isalpha(55), ft_isalpha(55));
-	printf("65:  %d %d\n", isalpha(65), ft_isalpha(65));
-	printf("0:   %d %d\n", isalpha(0), ft_isalpha(0));
-	printf("49:  %d %d\n", isalpha(49), ft_isalpha(49));
-	printf("112: %d %d\n", isalpha(112), ft_isalpha(112));
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_isalpha";
+	printf("===== %s =====\n", func);
+	{
+		int		num = 000;
+		int		expect = isalpha(num);
+		int		actual = ft_isalpha(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = '0';
+		int		expect = isalpha(num);
+		int		actual = ft_isalpha(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = '9';
+		int		expect = isalpha(num);
+		int		actual = ft_isalpha(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = '+';
+		int		expect = isalpha(num);
+		int		actual = ft_isalpha(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 'a' - 1;
+		int		expect = isalpha(num);
+		int		actual = ft_isalpha(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = -'0';
+		int		expect = isalpha(num);
+		int		actual = ft_isalpha(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 'z';
+		int		expect = isalpha(num);
+		int		actual = ft_isalpha(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 'z' + 1;
+		int		expect = isalpha(num);
+		int		actual = ft_isalpha(num);
+		assert(expect == actual, num);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (0);
 }
