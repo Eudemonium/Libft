@@ -1,13 +1,67 @@
+#include "libft.h"
 #include "libft_test.h"
-#include "../libft.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: \"%c\"\n", test); }
 
 int	main(void)
 {
-	printf("00\n   isprint: %d\nft_isprint: %d\n", isprint(00), ft_isprint(00));
-	printf("12\n   isprint: %d\nft_isprint: %d\n", isprint(12), ft_isprint(12));
-	printf("125\n   isprint: %d\nft_isprint: %d\n", isprint(125), ft_isprint(125));
-	printf("5\n   isprint: %d\nft_isprint: %d\n", isprint(5), ft_isprint(5));
-	printf("24\n   isprint: %d\nft_isprint: %d\n", isprint(24), ft_isprint(24));
-	printf("-42\n   isprint: %d\nft_isprint: %d\n", isprint(-42), ft_isprint(-42));
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_isprint";
+	printf("===== %s =====\n", func);
+	{
+		int		num = 000;
+		int		expect = isprint(num);
+		int		actual = ft_isprint(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = INT_MIN;
+		int		expect = isprint(num);
+		int		actual = ft_isprint(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = INT_MAX;
+		int		expect = isprint(num);
+		int		actual = ft_isprint(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 12;
+		int		expect = isprint(num);
+		int		actual = ft_isprint(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 'a';
+		int		expect = isprint(num);
+		int		actual = ft_isprint(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 128;
+		int		expect = isprint(num);
+		int		actual = ft_isprint(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = -42;
+		int		expect = isprint(num);
+		int		actual = ft_isprint(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = '\t';
+		int		expect = isprint(num);
+		int		actual = ft_isprint(num);
+		assert(expect == actual, num);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (0);
 }
