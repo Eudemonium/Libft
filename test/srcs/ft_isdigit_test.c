@@ -1,15 +1,67 @@
-#include "../libft.h"
+#include "libft.h"
 #include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: \"%d\"\n", test); }
 
 int	main(void)
 {
-	printf("###: isdigit() ft_isdigit()\n");
-	printf("000: %d %d\n", isdigit(000), ft_isdigit(000));
-	printf("177: %d %d\n", isdigit(177), ft_isdigit(177));
-	printf("55:  %d %d\n", isdigit(55), ft_isdigit(55));
-	printf("00:  %d %d\n", isdigit(00), ft_isdigit(00));
-	printf("0:   %d %d\n", isdigit(0), ft_isdigit(0));
-	printf("49:  %d %d\n", isdigit(49), ft_isdigit(49));
-	printf("128: %d %d\n", isdigit(128), ft_isdigit(128));
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_isdigit";
+	printf("===== %s =====\n", func);
+	{
+		int		num = 000;
+		int		expect = isdigit(num);
+		int		actual = ft_isdigit(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = INT_MIN;
+		int		expect = isdigit(num);
+		int		actual = ft_isdigit(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = INT_MAX;
+		int		expect = isdigit(num);
+		int		actual = ft_isdigit(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 177;
+		int		expect = isdigit(num);
+		int		actual = ft_isdigit(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 'a';
+		int		expect = isdigit(num);
+		int		actual = ft_isdigit(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = 128;
+		int		expect = isdigit(num);
+		int		actual = ft_isdigit(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = '0';
+		int		expect = isdigit(num);
+		int		actual = ft_isdigit(num);
+		assert(expect == actual, num);
+	}
+	{
+		int		num = '\t';
+		int		expect = isdigit(num);
+		int		actual = ft_isdigit(num);
+		assert(expect == actual, num);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (0);
 }

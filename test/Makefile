@@ -9,10 +9,11 @@ FUNC := ft_atoi
 FUNC += ft_isalpha
 FUNC += ft_isalnum
 FUNC += ft_isascii
+FUNC += ft_isdigit
 NAME := $(addsuffix _test,$(FUNC))
 
 all: $(NAME)
-	for func in $(NAME); do ./$$func >> $(OUTPUT); done
+	for func in $(NAME); do ./$$func; done
 
 $(NAME): mv_c
 	$(CC) $(CFLAGS) $(LIB) $(INCLUDES) $(OPTION) $@ $(SRC_DIR)$@.c
