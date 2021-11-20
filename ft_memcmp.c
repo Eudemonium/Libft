@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:53:13 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/20 18:06:49 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/20 20:25:33 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	index;
+	size_t			index;
 	unsigned char	*p1;
 	unsigned char	*p2;
 
