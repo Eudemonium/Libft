@@ -6,6 +6,7 @@ SRC_DIR = srcs/
 OPTION = -o
 OUTPUT = test_output
 FUNC := ft_atoi
+FUNC += ft_bzero
 FUNC += ft_isalpha
 FUNC += ft_isalnum
 FUNC += ft_isascii
