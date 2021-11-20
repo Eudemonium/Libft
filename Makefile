@@ -12,6 +12,7 @@ SRCS += ft_isdigit.c
 SRCS += ft_isprint.c
 SRCS += ft_iswhitespace.c
 SRCS += ft_itoa.c
+SRCS += ft_memalloc.c
 SRCS += ft_memchr.c
 SRCS += ft_memcmp.c
 SRCS += ft_memcpy.c
@@ -43,11 +44,11 @@ OBJ = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCS)
-	ar rc $(NAME) $(OBJ)
+	@$(CC) $(CFLAGS) $(SRCS)
+	@ar rc $(NAME) $(OBJ)
 
 clean:
-	/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ)
 
 fclean: clean
 	/bin/rm -f $(NAME)
