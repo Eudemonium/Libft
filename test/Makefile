@@ -13,6 +13,7 @@ FUNC += ft_isdigit
 FUNC += ft_isprint
 FUNC += ft_itoa
 FUNC += ft_tolower
+FUNC += ft_toupper
 NAME := $(addsuffix _test,$(FUNC))
 
 all: $(NAME)
