@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:09:56 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/10 11:22:41 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/20 14:34:20 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ unsigned int	ft_intlen(int n)
 	}
 	if (n < 0)
 	{
-		n = -n;
 		length++;
 	}
-	while (n > 0)
+	else
+		n = -n;
+	while (n != 0)
 	{
-		n = n / 10;
+		n = n / -10;
 		length++;
 	}
 	return (length);
