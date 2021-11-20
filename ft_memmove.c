@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 10:23:26 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/13 14:20:40 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/21 00:16:33 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	buff[len];
+	unsigned char		*p_dst;
+	const unsigned char	*p_src;
 
-	ft_memcpy(buff, src, len);
-	ft_memcpy(dst, buff, len);
+	p_dst = dst;
+	p_src = src;
+	if (dst < src)
+		return (ft_memcpy(dst, src, len));
+	else
+	{
+		while (len--)
+			p_dst[len] = p_src[len];
+	}
 	return (dst);
 }
