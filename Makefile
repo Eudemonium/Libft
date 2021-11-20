@@ -52,4 +52,4 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 
-re: clean all
+re: fclean all
