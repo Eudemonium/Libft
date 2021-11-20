@@ -16,13 +16,16 @@ FUNC += ft_tolower
 NAME := $(addsuffix _test,$(FUNC))
 
 all: $(NAME)
-	for func in $(NAME); do ./$$func; done
 
 $(NAME): mv_c
 	$(CC) $(CFLAGS) $(LIB) $(INCLUDES) $(OPTION) $@ $(SRC_DIR)$@.c
 
 $(FUNC):
-	make $@_test
+	make $(addsuffix _test,$@)
+	./$(addsuffix _test,$@)
+
+$(OUTPUT): all
+	for func in $(NAME); do ./$$func >> $(OUTPUT); done
 
 clean:
 	/bin/rm -f $(OUTPUT)
@@ -43,3 +46,5 @@ mv_test:
 	fi; done
 
 re: fclean all
+
+.PHONY: all $(FUNC) mv_c mv_test fclean re
