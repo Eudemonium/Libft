@@ -11,6 +11,7 @@ FUNC += ft_isalnum
 FUNC += ft_isascii
 FUNC += ft_isdigit
 FUNC += ft_isprint
+FUNC += ft_itoa
 FUNC += ft_tolower
 NAME := $(addsuffix _test,$(FUNC))
 
@@ -40,3 +41,5 @@ mv_test:
 	do if [ -f $(SRC_DIR)$$file.c ]; \
 	then mv $(SRC_DIR)$$file.c $(SRC_DIR)$$file.c_test; \
 	fi; done
+
+re: fclean all
