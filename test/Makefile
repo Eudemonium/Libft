@@ -11,6 +11,7 @@ FUNC += ft_isalnum
 FUNC += ft_isascii
 FUNC += ft_isdigit
 FUNC += ft_isprint
+FUNC += ft_tolower
 NAME := $(addsuffix _test,$(FUNC))
 
 all: $(NAME)
