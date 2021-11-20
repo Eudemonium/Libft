@@ -1,26 +1,43 @@
-#include "../libft.h"
+#include "libft.h"
 #include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: n = %d\n", test); }
 
 int	main(void)
 {
-	int		*num;
-	char	*chr;
-	int		index;
-
-	num = (int *)malloc(sizeof(int) * 3);
-	index = 0;
-	while (index < 3)
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_bzero";
+	printf("===== %s =====\n", func);
 	{
-		num[index++] = 3;
+		int		num = 0;
+		char	*expect = (char *)malloc(num);
+		char	*actual = (char *)malloc(num);
+		bzero(expect, num);
+		ft_bzero(actual, num);
+		assert(memcmp(expect, actual, num) == 0, num);
 	}
-	printf("%d %d %d\n", num[0], num[1], num[2]);
-	ft_bzero(num, sizeof(int) * 3);
-	printf("%d %d %d\n", num[0], num[1], num[2]);
-	chr = (char *)malloc(4);
-	chr[3] = '\0';
-	ft_memset(chr, 42, 3);
-	printf("%d %d %d\n", chr[0], chr[1], chr[2]);
-	ft_bzero(chr, 3);
-	printf("%d %d %d\n", chr[0], chr[1], chr[2]);
+	{
+		int		num = 2;
+		char	*expect = (char *)malloc(num);
+		char	*actual = (char *)malloc(num);
+		bzero(expect, num);
+		ft_bzero(actual, num);
+		assert(memcmp(expect, actual, num) == 0, num);
+	}
+	{
+		int		num = 3;
+		char	*expect = (char *)malloc(num);
+		char	*actual = (char *)malloc(num);
+		bzero(expect, num);
+		ft_bzero(actual, num);
+		assert(memcmp(expect, actual, num) == 0, num);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (0);
 }
