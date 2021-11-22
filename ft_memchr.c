@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:25:19 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/17 21:07:53 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/22 18:47:44 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	count = 0;
 	while (count < n)
 	{
-		if (ptr_s[0] == c)
+		if (ptr_s[0] == (unsigned char)c)
 		{
 			return (ptr_s);
 		}

@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 09:59:48 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/20 23:57:29 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/22 13:33:38 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	if (dst == NULL && src == NULL)
 		return (dst);
-	p_dst = dst;
-	p_src = src;
+	p_dst = (char *)dst;
+	p_src = (const char *)src;
 	while (n--)
-		*p_dst++ = *p_src++;
+		*p_dst++ = (unsigned char)*p_src++;
 	return (dst);
 }
