@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 07:22:43 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/17 21:10:28 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/22 23:30:22 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
 	size_t	index;
 
-	if (src == NULL)
-		return (NULL);
 	index = 0;
-	while (src[index] && index < len)
+	while (index < len && src[index])
 	{
-		dst[index] = src[index];
+		dst[index] = (const unsigned char)src[index];
 		index++;
-		if (index == len - 1 && src[index])
-			break ;
 	}
-	dst[index] = '\0';
+	while (index < len && dst[index])
+		dst[index++] = '\0';
 	return (dst);
 }
