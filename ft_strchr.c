@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:19:52 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/14 21:58:31 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/22 23:33:35 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ char	*ft_strchr(const char *s, int c)
 	char	*ptr;
 
 	ptr = (char *)s;
-	while (ptr)
+	while (ptr[0])
 	{
-		if (ptr[0] == c)
+		if (ptr[0] == (char)c)
 			return (ptr);
 		ptr++;
 	}
-	if (c == '\0')
+	if (c == '\0' && ptr[0] == '\0')
 		return (ptr);
 	return (NULL);
 }
