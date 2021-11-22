@@ -13,6 +13,7 @@ SRCS += ft_isprint.c
 SRCS += ft_iswhitespace.c
 SRCS += ft_itoa.c
 SRCS += ft_memalloc.c
+SRCS += ft_memccpy.c
 SRCS += ft_memchr.c
 SRCS += ft_memcmp.c
 SRCS += ft_memcpy.c
