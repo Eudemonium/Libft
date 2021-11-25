@@ -1,12 +1,39 @@
-#include "../libft.h"
+#include "libft.h"
 #include "libft_test.h"
 
-int	main(void)
-{
-	char	*p;
-	char	*s = "foobar";
+#define assert(eval, src) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s\"\n", src); }
 
-	p = ft_strchr(s, 'b');
-	printf("'b' in 'foobar': '%s'\n", p);
-	return (0);
+int	test_ft_strchr(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strchr";
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "0000001";
+		char	*expect = strchr(src, '1');
+		char	*actual = ft_strchr(src, '1');
+		assert(expect == actual, src);
+	}
+	{
+		char	src[] = "10000001";
+		char	*expect = strchr(src, '1');
+		char	*actual = ft_strchr(src, '1');
+		assert(expect == actual, src);
+	}
+	{
+		char	src[] = "10000001";
+		char	*expect = strchr(src, 'a');
+		char	*actual = ft_strchr(src, 'a');
+		assert(expect == actual, src);
+	}
+	{
+		char	src[] = "10000001";
+		char	*expect = strchr(src, 'a');
+		char	*actual = ft_strchr(src, 'a');
+		assert(expect == actual, src);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
 }

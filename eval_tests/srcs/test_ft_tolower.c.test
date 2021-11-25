@@ -8,7 +8,7 @@
 #define assert(eval, test) \
 	if (eval) ++success; else {++failure; printf("fail: \"%c\"\n", test); }
 
-int	main(void)
+int	test_ft_tolower(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;

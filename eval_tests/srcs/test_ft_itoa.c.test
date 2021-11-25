@@ -8,7 +8,7 @@
 #define assert(eval, test) \
 	if (eval) ++success; else {++failure; printf("fail: \"%d\"\n", test); }
 
-int	main(void)
+int	test_ft_itoa(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
@@ -16,13 +16,13 @@ int	main(void)
 	printf("===== %s =====\n", func);
 	{
 		int		num = INT_MIN;
-		char	*expect = INT_MIN_C;
+		char	*expect = "-2147483648";
 		char	*actual = ft_itoa(num);
 		assert(strcmp(expect, actual) == 0, num);
 	}
 	{
 		int		num = INT_MAX;
-		char	*expect = INT_MAX_C;
+		char	*expect = "2147483647";
 		char	*actual = ft_itoa(num);
 		assert(strcmp(expect, actual) == 0, num);
 	}
@@ -39,5 +39,5 @@ int	main(void)
 		assert(strcmp(expect, actual) == 0, num);
 	}
 	printf("%i of %i tests passed.\n", success, (success + failure));
-	return (0);
+	return (failure == 0);
 }

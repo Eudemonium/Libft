@@ -8,20 +8,20 @@
 #define assert(eval, test) \
 	if (eval) ++success; else {++failure; printf("fail: \"%s\"\n", test); }
 
-int	main(void)
+int	test_ft_atoi(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_atoi";
 	printf("===== %s =====\n", func);
 	{
-		char	*string = INT_MIN_C;
+		char	*string = "-2147483648";
 		int		expect = atoi(string);
 		int		actual = ft_atoi(string);
 		assert(expect == actual, string);
 	}
 	{
-		char	*string = INT_MAX_C;
+		char	*string = "2147483647";
 		int		expect = atoi(string);
 		int		actual = ft_atoi(string);
 		assert(expect == actual, string);
@@ -51,5 +51,5 @@ int	main(void)
 		assert(expect == actual, string);
 	}
 	printf("%i of %i tests passed.\n", success, (success + failure));
-	return (0);
+	return (failure == 0);
 }

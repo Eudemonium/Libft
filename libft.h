@@ -6,14 +6,12 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/22 12:49:54 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/25 20:44:19 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>

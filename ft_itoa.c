@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 11:10:14 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/20 14:32:28 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/23 18:56:11 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,21 @@ char	*ft_itoa(int n)
 
 	len = ft_intlen(n);
 	str = init_numstr(len);
-	if (str == NULL)
-		return (NULL);
-	index = 0;
-	if (n < 0)
+	if (str)
 	{
-		str[index] = '-';
-		index++;
-	}
-	else
-		n = -n;
-	len--;
-	while (index <= len)
-	{
-		place = -n / ft_pow(10, len - index);
-		str[index] = '0' + place;
-		n = n + (place * ft_pow(10, len - index));
-		index++;
+		index = 0;
+		if (n < 0)
+			str[index++] = '-';
+		else
+			n = -n;
+		len--;
+		while (index <= len)
+		{
+			place = -n / ft_pow(10, len - index);
+			str[index] = '0' + place;
+			n = n + (place * ft_pow(10, len - index));
+			index++;
+		}
 	}
 	return (str);
 }

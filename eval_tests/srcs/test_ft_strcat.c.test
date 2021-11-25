@@ -1,22 +1,49 @@
-#include "../libft.h"
+#include "libft.h"
 #include "libft_test.h"
 
-int	main (void)
-{
-	char *s1;
-	char *s2;
-	char *s3;
+#ifdef assert
+#undef assert
+#endif
 
-	s1 = (char *)malloc(sizeof(char) * 5);
-	s3 = (char *)malloc(sizeof(char) * 5);
-	s1[0] = '0';
-	s1[1] = '\0';
-	s3[0] = '0';
-	s3[1] = '\0';
-	s2[0] = 'H';
-	s2[1] = 'i';
-	ft_strcat(s1, s2);
-	strcat(s3, s2);
-	printf("%s\n", s1);
-	printf("%s\n", s3);
+#define assert(eval, src) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s\"\n", src); }
+
+int	test_ft_strcat(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strcat";
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "dst[0] = NULL";
+		char	*dst_1 = (char *)malloc(25);
+		char	*dst_2 = (char *)malloc(25);
+		dst_1 = memset(dst_1, ' ', 25);
+		dst_2 = memset(dst_2, ' ', 25);
+		dst_1[0] = '\0';
+		dst_2[0] = '\0';
+		char	*expect = strcat(dst_1, src);
+		char	*actual = ft_strcat(dst_2, src);
+		assert(memcmp(expect, actual, 25) == 0, src);
+		free(dst_1);
+		free(dst_2);
+	}
+	{
+		char	src[] = "dst with multiple NULL";
+		char	*dst_1 = (char *)malloc(30);
+		char	*dst_2 = (char *)malloc(30);
+		dst_1 = memset(dst_1, ' ', 30);
+		dst_2 = memset(dst_2, ' ', 30);
+		dst_1[2] = '\0';
+		dst_2[2] = '\0';
+		dst_1[5] = '\0';
+		dst_2[5] = '\0';
+		char	*expect = strcat(dst_1, src);
+		char	*actual = ft_strcat(dst_2, src);
+		assert(memcmp(expect, actual, 30) == 0, src);
+		free(dst_1);
+		free(dst_2);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
 }

@@ -1,0 +1,37 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s\"\n", test); }
+
+int	test_ft_strlen(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strlen";
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "000000";
+		int		expect = strlen(src);
+		int		actual = ft_strlen(src);
+		assert(expect == actual, src);
+	}
+	{
+		char	src[] = "000 000 ";
+		int		expect = strlen(src);
+		int		actual = ft_strlen(src);
+		assert(expect == actual, src);
+	}
+	{
+		char	src[] = "";
+		int		expect = strlen(src);
+		int		actual = ft_strlen(src);
+		assert(expect == actual, src);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

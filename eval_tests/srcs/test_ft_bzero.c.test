@@ -8,7 +8,7 @@
 #define assert(eval, test) \
 	if (eval) ++success; else {++failure; printf("fail: n = %d\n", test); }
 
-int	main(void)
+int	test_ft_bzero(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
@@ -39,5 +39,5 @@ int	main(void)
 		assert(memcmp(expect, actual, num) == 0, num);
 	}
 	printf("%i of %i tests passed.\n", success, (success + failure));
-	return (0);
+	return (failure == 0);
 }
