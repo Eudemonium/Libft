@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 11:21:18 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/29 17:03:58 by jagagas          ###   ########.fr       */
+/*   Created: 2021/11/29 15:36:58 by jagagas           #+#    #+#             */
+/*   Updated: 2021/11/29 15:37:44 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_max(int a, int b)
 {
-	size_t	dstsize_before;
-
-	dstsize_before = ft_strlen(dst);
-	if (dstsize > 0)
-		ft_strncat(dst, src, dstsize - dstsize_before - 1);
-	return (dstsize_before + ft_strlen((char *)src));
+	if (a > b)
+		return (a);
+	return (b);
 }

@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 11:21:18 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/29 17:03:58 by jagagas          ###   ########.fr       */
+/*   Created: 2021/11/26 20:27:04 by jagagas           #+#    #+#             */
+/*   Updated: 2021/11/29 12:49:22 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	size_t	dstsize_before;
-
-	dstsize_before = ft_strlen(dst);
-	if (dstsize > 0)
-		ft_strncat(dst, src, dstsize - dstsize_before - 1);
-	return (dstsize_before + ft_strlen((char *)src));
+	return (ft_strnstr(haystack, needle, ft_strlen((char *)haystack)));
 }

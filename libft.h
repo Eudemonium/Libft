@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/25 20:44:19 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/11/29 17:04:38 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 
 size_t			ft_strlen(char *str);
+int				ft_strncmp(const char *s1, const char *s2, size_t len);
+int				ft_strcmp(const char *s1, const char *s2);
+char			*ft_strnstr(const char *haystack, \
+							const char *needle, size_t len);
+char			*ft_strstr(const char *haystack, const char *needle);
 
 void			ft_putchar_fd(char c, int fd);
 void			ft_putchar(char c);
@@ -55,5 +60,6 @@ char			*ft_itoa(int n);
 
 unsigned int	ft_intlen(int n);
 unsigned int	ft_pow(int base, int exponent);
+int				ft_max(int a, int b);
 int				ft_iswhitespace(char c);
 #endif
