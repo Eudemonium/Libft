@@ -13,6 +13,7 @@ FUNC += ft_isascii
 FUNC += ft_isdigit
 FUNC += ft_isprint
 FUNC += ft_itoa
+FUNC += ft_memalloc
 FUNC += ft_memccpy
 FUNC += ft_memset
 FUNC += ft_strcat

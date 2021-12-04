@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 16:50:54 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/25 20:36:28 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/04 15:58:28 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	test_ft_toupper(void);
 int	test_ft_tolower(void);
 
 //Second Part
+int	test_ft_memalloc(void);
 int	test_ft_itoa(void);
 
 #endif

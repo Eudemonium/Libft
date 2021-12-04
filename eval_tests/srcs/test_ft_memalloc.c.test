@@ -1,0 +1,26 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: n = %lu\n", test); }
+
+int	test_ft_memalloc(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_memalloc";
+	printf("===== %s =====\n", func);
+	{
+		size_t	num = 10;
+		char	*expect = (char *)malloc(num);
+		bzero(expect, num);
+		char	*actual = ft_memalloc(num);
+		assert(memcmp(expect, actual, num) == 0, num);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}
