@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/04 16:08:10 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/04 16:40:46 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void			ft_memdel(void **ap);
 void			ft_strdel(char **as);
 void			*ft_memalloc(size_t size);
 void			ft_strclr(char *s);
+void			ft_striter(char *s, void (*f)(char *));
+void			ft_striteri(char *s, void (*f)(unsigned int, char *));
+char			*ft_strmap(char const *s, char (*f)(char));
 
 char			*ft_strnew(size_t size);
 char			*ft_strcpy(char *dst, const char *src);
