@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 11:21:18 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/06 20:37:56 by jagagas          ###   ########.fr       */
+/*   Created: 2021/12/06 17:14:18 by jagagas           #+#    #+#             */
+/*   Updated: 2021/12/06 17:22:49 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	dst_len;
-	size_t	src_len;
+	char	*str;
+	char	*p_str;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen((char *)src);
-	if (dstsize <= dst_len)
-		return (dstsize + src_len);
-	while (*dst && dstsize)
-	{
-		dst++;
-		dstsize--;
-	}
-	while (*src)
-	{
-		if (dstsize-- > 1)
-			*dst++ = *src;
-		src++;
-	}
-	*dst = '\0';
-	return (dst_len + src_len);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	s1_len = ft_strlen((char *)s1);
+	s2_len = ft_strlen((char *)s2);
+	str = ft_strnew(s1_len + s2_len);
+	if (str == NULL)
+		return (NULL);
+	ft_strncpy(str, s1, s1_len);
+	p_str = str;
+	while (s1_len--)
+		p_str++;
+	ft_strncpy(p_str, s2, s2_len);
+	return (str);
 }

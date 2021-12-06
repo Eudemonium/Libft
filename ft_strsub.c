@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 11:21:18 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/06 20:37:56 by jagagas          ###   ########.fr       */
+/*   Created: 2021/12/06 16:57:47 by jagagas           #+#    #+#             */
+/*   Updated: 2021/12/06 17:11:29 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strsub(const char *s, unsigned int start, size_t len)
 {
-	size_t	dst_len;
-	size_t	src_len;
+	char	*str;
+	size_t	index;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen((char *)src);
-	if (dstsize <= dst_len)
-		return (dstsize + src_len);
-	while (*dst && dstsize)
+	if (s == NULL )
+		return (NULL);
+	str = ft_strnew(len);
+	if (str != NULL)
 	{
-		dst++;
-		dstsize--;
+		index = 0;
+		while (start-- && *s)
+			s++;
+		if (*s)
+			ft_strncpy(str, s, len);
+		return (str);
 	}
-	while (*src)
-	{
-		if (dstsize-- > 1)
-			*dst++ = *src;
-		src++;
-	}
-	*dst = '\0';
-	return (dst_len + src_len);
+	return (NULL);
 }
