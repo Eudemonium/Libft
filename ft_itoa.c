@@ -6,22 +6,11 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 11:10:14 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/23 18:56:11 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/06 22:44:23 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*init_numstr(int len)
-{
-	char	*str;
-
-	str = (char *)malloc(sizeof(char) * len + 1);
-	if (str == NULL)
-		return (NULL);
-	str[len] = '\0';
-	return (str);
-}
 
 char	*ft_itoa(int n)
 {
@@ -31,7 +20,7 @@ char	*ft_itoa(int n)
 	int		place;
 
 	len = ft_intlen(n);
-	str = init_numstr(len);
+	str = ft_strnew(len);
 	if (str)
 	{
 		index = 0;
