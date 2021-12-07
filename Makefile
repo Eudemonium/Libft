@@ -58,6 +58,10 @@ SRCS += ft_strsub.c
 SRCS += ft_strtrim.c
 SRCS += ft_tolower.c
 SRCS += ft_toupper.c
+SRCS += ft_lstnew.c
+SRCS += ft_lstdelone.c
+SRCS += ft_lstdel.c
+SRCS += ft_lstadd.c
 
 OBJ = $(SRCS:%.c=%.o)
 
