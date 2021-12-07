@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:42:35 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/07 17:47:50 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/07 18:31:14 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	ft_lstadd(t_list **alst, t_list *new)
 {
 
 	new->next = (*alst);
-	alst = &new;
+	(*alst) = new;
 }
