@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:21:18 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/06 20:37:56 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/07 13:21:26 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	while (*src)
 	{
-		if (dstsize-- > 1)
+		if (dstsize > 1)
+		{
 			*dst++ = *src;
+			dstsize--;
+		}
 		src++;
 	}
 	*dst = '\0';
