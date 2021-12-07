@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:15:01 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/08 12:16:57 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/07 14:54:47 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	ft_putstr_fd(char const *s, int fd)
 {
 	int	index;
 
-	index = 0;
-	while (s[index])
+	if (s)
 	{
-		ft_putchar_fd(s[index], fd);
-		index++;
+		index = 0;
+		while (s[index])
+		{
+			ft_putchar_fd(s[index], fd);
+			index++;
+		}
 	}
 }
