@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 21:34:00 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/06 22:42:45 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/07 14:41:05 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ char	**ft_strsplit(char const *s, char c)
 	size_t	index;
 	size_t	w_count;
 	size_t	w_size;
-	size_t	w_index;
 
 	if (s == NULL)
 		return (NULL);
@@ -72,7 +71,7 @@ char	**ft_strsplit(char const *s, char c)
 		return (NULL);
 	array[w_count] = 0;
 	index = 0;
-	while (*s)
+	while (index < w_count)
 	{
 		while (*s == c)
 			s++;
@@ -83,12 +82,8 @@ char	**ft_strsplit(char const *s, char c)
 			free_array(array, index);
 			return (NULL);
 		}
-		w_index = 0;
-		while (w_index < w_size)
-		{
-			array[index][w_index] = *s++;
-			w_index++;
-		}
+		ft_strncpy(array[index], s, w_size);
+		s = s + w_size;
 		index++;
 	}
 	return (array);
