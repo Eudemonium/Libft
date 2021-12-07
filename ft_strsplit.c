@@ -6,13 +6,13 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 21:34:00 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/06 22:10:21 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/06 22:42:45 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	word_count(char const *s, char delim)
+static unsigned int	word_count(char const *s, char delim)
 {
 	size_t	count;
 	int		word;
@@ -35,7 +35,7 @@ unsigned int	word_count(char const *s, char delim)
 	return (count);
 }
 
-size_t	word_size(char const *s, char token)
+static size_t	word_size(char const *s, char token)
 {
 	char	*ptr;
 
@@ -45,7 +45,7 @@ size_t	word_size(char const *s, char token)
 	return (ptr - s);
 }
 
-void	free_array(char **ptr, size_t len)
+static void	free_array(char **ptr, size_t len)
 {
 	while (len--)
 	{
@@ -64,6 +64,8 @@ char	**ft_strsplit(char const *s, char c)
 	size_t	w_size;
 	size_t	w_index;
 
+	if (s == NULL)
+		return (NULL);
 	w_count = word_count(s, c);
 	array = (char **)malloc(sizeof(char *) * w_count + 1);
 	if (!array)
@@ -83,7 +85,10 @@ char	**ft_strsplit(char const *s, char c)
 		}
 		w_index = 0;
 		while (w_index < w_size)
-			array[index][w_index++] = *s++;
+		{
+			array[index][w_index] = *s++;
+			w_index++;
+		}
 		index++;
 	}
 	return (array);
