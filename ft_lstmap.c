@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:39:22 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/08 13:40:57 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/08 14:56:08 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*head;
 	t_list	*new;
 
-	head = NULL; 
+	head = NULL;
 	while (lst)
 	{
 		new = f(lst);

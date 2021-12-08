@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:10:18 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/08 14:15:49 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/08 14:39:06 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_lstaddback(t_list **alst, t_list *new)
 {
 	t_list	*lst;
 
-	if (alst)
+	if (*alst)
 	{
-		lst = ((*alst)->next);
+		lst = (*alst);
 		while (lst->next)
 			lst = lst->next;
 		lst->next = new;
