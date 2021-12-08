@@ -23,6 +23,7 @@ FUNC += ft_strncpy
 FUNC += ft_strrchr
 FUNC += ft_tolower
 FUNC += ft_toupper
+FUNC += ft_lstaddback
 
 
 SRCS := $(addprefix $(SRC_DIR)test_,$(FUNC))

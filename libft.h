@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/08 14:18:44 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/08 15:11:07 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ char			*ft_strstr(const char *haystack, const char *needle);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putchar(char c);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr(int n);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putstr(char const *s);
 void			ft_putendl_fd(char const *s, int fd);
+void			ft_putendl(char const *s);
 
 char			*ft_itoa(int n);
 
