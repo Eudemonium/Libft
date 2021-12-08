@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 12:40:26 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/29 15:19:54 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/08 17:31:58 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,28 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t		needle_len;
+	size_t	h_index;
+	size_t	n_index;
 
-	needle_len = ft_strlen((char *)needle);
-	if (needle_len == 0 || haystack == needle)
+	if (needle[0] == '\0')
 		return ((char *)haystack);
-	while (len-- >= needle_len && (*haystack || *haystack == *needle))
+	h_index = 0;
+	while (h_index < len && haystack[h_index] != '\0')
 	{
-		if (*haystack == *needle)
+		if (haystack[h_index] == needle[0])
 		{
-			if (ft_strncmp(haystack, needle, needle_len) == 0)
-				return ((char *)haystack);
+			n_index = 0;
+			while (needle[n_index] && haystack[h_index + n_index] && \
+					h_index + n_index <= len)
+			{
+				if (haystack[h_index + n_index] != needle[n_index])
+					break ;
+				n_index++;
+			}
+			if (needle[n_index] == '\0')
+				return ((char *)&haystack[h_index]);
 		}
-		haystack++;
+		h_index++;
 	}
 	return (NULL);
 }
