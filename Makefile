@@ -32,6 +32,7 @@ SRCS += ft_putstr_fd.c
 SRCS += ft_putstr.c
 SRCS += ft_strcat.c
 SRCS += ft_strchr.c
+SRCS += ft_strccpy.c
 SRCS += ft_strclr.c
 SRCS += ft_strcmp.c
 SRCS += ft_strcpy.c
@@ -65,8 +66,8 @@ SRCS += ft_lstadd.c
 SRCS += ft_lstiter.c
 SRCS += ft_lstmap.c
 
-SRCS += ft_lstdup.c
 SRCS += ft_lstaddback.c
+SRCS += ft_del.c
 
 OBJ = $(SRCS:%.c=%.o)
 

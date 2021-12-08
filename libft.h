@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/07 19:45:43 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/08 14:18:44 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ unsigned int	ft_intlen(int n);
 unsigned int	ft_pow(int base, int exponent);
 int				ft_max(int a, int b);
 int				ft_iswhitespace(char c);
+char			*ft_strccpy(char *dst, char const *src, char c);
 
 typedef struct s_list
 {
@@ -92,7 +93,7 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-t_list	*ft_lstdup(t_list *lst);
-void	ft_lstaddback(t_list **alst, t_list *new);
+void			ft_lstaddback(t_list **alst, t_list *new);
+void			ft_del(void *content, size_t content_size);
 
 #endif

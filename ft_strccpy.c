@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_strccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 18:33:34 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/08 12:24:01 by jagagas          ###   ########.fr       */
+/*   Created: 2021/12/08 12:15:26 by jagagas           #+#    #+#             */
+/*   Updated: 2021/12/08 12:16:24 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+char	*ft_strccpy(char *dst, char const *src, char c)
 {
-	t_list	*next;
-
-	while (lst)
+	if (dst)
 	{
-		next = lst->next;
-		f(lst);
-		lst = next;
+		while (*src && *src != c)
+			*dst++ = *src++;
 	}
+	return (dst);
 }

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdup.c                                        :+:      :+:    :+:   */
+/*   del.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 18:44:48 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/07 18:48:46 by jagagas          ###   ########.fr       */
+/*   Created: 2021/12/08 12:38:08 by jagagas           #+#    #+#             */
+/*   Updated: 2021/12/08 12:41:31 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstdup(t_list *lst)
+void	ft_del(void *content, size_t content_size)
 {
-	if (lst)
-		return (ft_lstnew(lst->content, lst->content_size));
-	return NULL;
+	free(content);
+	content = NULL;
+	(void)content_size;
 }

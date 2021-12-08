@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstaddback.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:10:18 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/07 19:46:48 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/08 14:15:49 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	ft_lstaddback(t_list **alst, t_list *new)
 {
-	if (*alst)
+	t_list	*lst;
+
+	if (alst)
 	{
-		while ((*alst)->next)
-			(*alst) = (*alst)->next;
+		lst = ((*alst)->next);
+		while (lst->next)
+			lst = lst->next;
+		lst->next = new;
 	}
-	(*alst)->next = new;
+	else
+		(*alst) = new;
 }

@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 21:34:00 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/07 14:41:05 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/08 12:17:04 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static size_t	word_size(char const *s, char token)
 	return (ptr - s);
 }
 
-static void	free_array(char **ptr, size_t len)
+static void	*free_array(char **ptr, size_t len)
 {
 	while (len--)
 	{
@@ -54,37 +54,33 @@ static void	free_array(char **ptr, size_t len)
 	}
 	free(ptr);
 	ptr = NULL;
+	return (NULL);
 }
 
 char	**ft_strsplit(char const *s, char c)
 {
 	char	**array;
 	size_t	index;
-	size_t	w_count;
-	size_t	w_size;
 
 	if (s == NULL)
 		return (NULL);
-	w_count = word_count(s, c);
-	array = (char **)malloc(sizeof(char *) * w_count + 1);
+	array = (char **)malloc(sizeof(char *) * word_count(s, c) + 1);
 	if (!array)
 		return (NULL);
-	array[w_count] = 0;
 	index = 0;
-	while (index < w_count)
+	while (*s)
 	{
 		while (*s == c)
 			s++;
-		w_size = word_size(s, c);
-		array[index] = ft_strnew(w_size);
-		if (array[index] == NULL)
+		if (*s)
 		{
-			free_array(array, index);
-			return (NULL);
+			array[index] = ft_strnew(word_size(s, c));
+			if (array[index] == NULL)
+				return (free_array(array, index));
+			ft_strccpy(array[index], s, c);
+			s = s + ft_strlen(array[index++]);
 		}
-		ft_strncpy(array[index], s, w_size);
-		s = s + w_size;
-		index++;
 	}
+	array[index] = 0;
 	return (array);
 }
