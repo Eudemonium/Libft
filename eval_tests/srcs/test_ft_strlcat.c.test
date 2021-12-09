@@ -1,0 +1,24 @@
+#include <string.h>
+#include <stdio.h>
+#include <libft.h>
+
+int	main(void)
+{
+	char	d[4] = "";
+	char	d2[4] = "";
+	
+	printf("%lu\n",strlcat(d, "thx to ntoniolo for this test !", 4));
+	printf("%lu\n",ft_strlcat(d2, "thx to ntoniolo for this test !", 4));
+
+	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
+	char buff1[0xF00] = "there is no stars in the sky";
+	char buff2[0xF00] = "there is no stars in the sky";
+	size_t max = strlen("the cake is a lie !\0I'm hidden lol\r\n") + 4;
+	printf("%lu\n", max);
+
+	size_t r1 = strlcat(buff1, str, max);
+	size_t r2 = ft_strlcat(buff2, str, max);
+	printf("%lu: %s, %lu + %lu\n", r1, buff1, strlen(buff1), strlen(str));
+	printf("%lu: %s, %lu + %lu\n", r2, buff2, strlen(buff2), strlen(str));
+	return (0);
+}

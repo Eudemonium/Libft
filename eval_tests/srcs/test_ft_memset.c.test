@@ -16,26 +16,35 @@ int	test_ft_memset(void)
 	printf("===== %s =====\n", func);
 	{
 		int		num = 0;
-		char	*expect = (char *)malloc(num);
-		char	*actual = (char *)malloc(num);
-		memset(expect, '0', num);
-		ft_memset(actual, '0', num);
+		int		bound = 3;
+		char	*expect = (char *)malloc(bound);
+		char	*actual = (char *)malloc(bound);
+		bzero(expect, bound);
+		bzero(actual, bound);
+		memset(expect + 1, '0', num);
+		ft_memset(actual + 1, '0', num);
 		assert(memcmp(expect, actual, num) == 0, num);
 	}
 	{
 		int		num = 2;
-		char	*expect = (char *)malloc(num);
-		char	*actual = (char *)malloc(num);
-		memset(expect, '0', num);
-		ft_memset(actual, '0', num);
+		int		bound = 4;
+		char	*expect = (char *)malloc(bound);
+		char	*actual = (char *)malloc(bound);
+		bzero(expect, bound);
+		bzero(actual, bound);
+		memset(expect + 1, '\n', num);
+		ft_memset(actual + 1, '\n', num);
 		assert(memcmp(expect, actual, num) == 0, num);
 	}
 	{
 		int		num = 3;
-		char	*expect = (char *)malloc(num);
-		char	*actual = (char *)malloc(num);
-		memset(expect, '0', num);
-		ft_memset(actual, '0', num);
+		int		bound = 5;
+		char	*expect = (char *)malloc(bound);
+		char	*actual = (char *)malloc(bound);
+		bzero(expect, bound);
+		bzero(actual, bound);
+		memset(expect + 1, 8, num);
+		ft_memset(actual + 1, 8, num);
 		assert(memcmp(expect, actual, num) == 0, num);
 	}
 	printf("%i of %i tests passed.\n", success, (success + failure));
