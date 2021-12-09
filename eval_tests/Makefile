@@ -24,6 +24,7 @@ FUNC += ft_memmove
 FUNC += ft_memset
 FUNC += ft_strcat
 FUNC += ft_strchr
+FUNC += ft_strcpy
 FUNC += ft_strdup
 FUNC += ft_strlen
 FUNC += ft_strncpy

@@ -15,7 +15,21 @@ int	test_ft_strcat(void)
 	char		*func = "ft_strcat";
 	printf("===== %s =====\n", func);
 	{
-		char	src[] = "dst[0] = NULL";
+		char	src[] = "basic strcat";
+		char	*dst_1 = (char *)malloc(25);
+		char	*dst_2 = (char *)malloc(25);
+		dst_1 = memset(dst_1, 0, 25);
+		dst_2 = memset(dst_2, 0, 25);
+		dst_1 = memset(dst_1, ' ', 5);
+		dst_2 = memset(dst_2, ' ', 5);
+		char	*expect = strcat(dst_1, src);
+		char	*actual = ft_strcat(dst_2, src);
+		assert(memcmp(expect, actual, 25) == 0, src);
+		free(dst_1);
+		free(dst_2);
+	}
+	{
+		char	src[] = "terminate at dst[0]";
 		char	*dst_1 = (char *)malloc(25);
 		char	*dst_2 = (char *)malloc(25);
 		dst_1 = memset(dst_1, ' ', 25);
@@ -29,15 +43,15 @@ int	test_ft_strcat(void)
 		free(dst_2);
 	}
 	{
-		char	src[] = "dst with multiple NULL";
+		char	src[] = "multiple terminating dst";
 		char	*dst_1 = (char *)malloc(30);
 		char	*dst_2 = (char *)malloc(30);
 		dst_1 = memset(dst_1, ' ', 30);
 		dst_2 = memset(dst_2, ' ', 30);
-		dst_1[2] = '\0';
-		dst_2[2] = '\0';
-		dst_1[5] = '\0';
-		dst_2[5] = '\0';
+		dst_1[1] = '\0';
+		dst_2[1] = '\0';
+		dst_1[3] = '\0';
+		dst_2[3] = '\0';
 		char	*expect = strcat(dst_1, src);
 		char	*actual = ft_strcat(dst_2, src);
 		assert(memcmp(expect, actual, 30) == 0, src);

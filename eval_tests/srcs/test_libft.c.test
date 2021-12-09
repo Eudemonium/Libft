@@ -13,7 +13,7 @@ int	main(void)
 	test_ft_memcmp();
 	test_ft_strlen();
 	test_ft_strdup();
-	//test_ft_strcpy();
+	test_ft_strcpy();
 	test_ft_strncpy();
 	test_ft_strcat();
 	//test_ft_strncat();

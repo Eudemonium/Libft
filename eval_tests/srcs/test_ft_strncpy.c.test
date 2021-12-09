@@ -38,6 +38,30 @@ int	test_ft_strncpy(void)
 		free(dst_1);
 		free(dst_2);
 	}
+	{
+		char	src[] = "basic string copy";
+		char	*dst_1 = (char *)malloc(25);
+		char	*dst_2 = (char *)malloc(25);
+		dst_1 = memset(dst_1, '0', 25);
+		dst_2 = memset(dst_2, '0', 25);
+		char	*expect = strncpy(dst_1, src, 1);
+		char	*actual = ft_strncpy(dst_2, src, 1);
+		assert(memcmp(expect, actual, 25) == 0, src, 1);
+		free(dst_1);
+		free(dst_2);
+	}
+	{
+		char	src[] = "";
+		char	*dst_1 = (char *)malloc(25);
+		char	*dst_2 = (char *)malloc(25);
+		dst_1 = memset(dst_1, '0', 25);
+		dst_2 = memset(dst_2, '0', 25);
+		char	*expect = strncpy(dst_1, src, 10);
+		char	*actual = ft_strncpy(dst_2, src, 10);
+		assert(memcmp(expect, actual, 25) == 0, src, 10);
+		free(dst_1);
+		free(dst_2);
+	}
 	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (failure == 0);
 }
