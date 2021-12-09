@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I.. -I$(INCL_DIR)
 INCL_DIR = includes/
-HEADER = libft_test.h
+HEADER = $(INCL_DIR)libft_test.h
 LIB = -L.. -lft
 SRC_DIR = srcs/
 OPTION = -o
@@ -54,8 +54,8 @@ mv_c:
 	do if [ -f $${file}.test ]; \
 	then mv $${file}.test $$file; \
 	fi; done 
-	if [ -f $(INCL_DIR)$(HEADER).test ]; \
-	then mv $(INCL_DIR)$(HEADER).test $(INCL_DIR)$(HEADER); \
+	if [ -f $(HEADER).test ]; \
+	then mv $(HEADER).test $(HEADER); \
 	fi; 
 
 mv_test:
@@ -63,8 +63,8 @@ mv_test:
 	do if [ -f $$file ]; \
 	then mv $$file $${file}.test; \
 	fi; done 
-	if [ -f $(INCL_DIR)$(HEADER) ]; \
-	then mv $(INCL_DIR)$(HEADER) $(INCL_DIR)$(HEADER).test; \
+	if [ -f $(HEADER) ]; \
+	then mv $(HEADER) $(HEADER).test; \
 	fi;
 
 re: fclean all
