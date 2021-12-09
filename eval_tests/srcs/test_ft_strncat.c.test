@@ -1,0 +1,64 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, src, len) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s\"(%lu)\n", src, len); }
+
+int	test_ft_strncat(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strncat";
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "basic strncat";
+		size_t	num = strlen(src);
+		char	*dst_1 = (char *)malloc(25);
+		char	*dst_2 = (char *)malloc(25);
+		dst_1 = memset(dst_1, '0', 25);
+		dst_2 = memset(dst_2, '0', 25);
+		dst_1[1] = '\0';
+		dst_2[1] = '\0';
+		char	*expect = strncat(dst_1, src, num);
+		char	*actual = ft_strncat(dst_2, src, num);
+		assert(memcmp(expect, actual, 25) == 0, src, num);
+		free(dst_1);
+		free(dst_2);
+	}
+	{
+		char	src[] = "don't take everything here";
+		size_t	num = 20;
+		char	*dst_1 = (char *)malloc(25);
+		char	*dst_2 = (char *)malloc(25);
+		dst_1 = memset(dst_1, '0', 25);
+		dst_2 = memset(dst_2, '0', 25);
+		dst_1[1] = '\0';
+		dst_2[1] = '\0';
+		char	*expect = strncat(dst_1, src, num);
+		char	*actual = ft_strncat(dst_2, src, num);
+		assert(memcmp(expect, actual, 25) == 0, src, num);
+		free(dst_1);
+		free(dst_2);
+	}
+	{
+		char	src[] = "";
+		size_t	num = strlen(src);
+		char	*dst_1 = (char *)malloc(25);
+		char	*dst_2 = (char *)malloc(25);
+		dst_1 = memset(dst_1, '0', 25);
+		dst_2 = memset(dst_2, '0', 25);
+		dst_1[1] = '\0';
+		dst_2[1] = '\0';
+		char	*expect = strncat(dst_1, src, num);
+		char	*actual = ft_strncat(dst_2, src, num);
+		assert(memcmp(expect, actual, 25) == 0, src, num);
+		free(dst_1);
+		free(dst_2);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

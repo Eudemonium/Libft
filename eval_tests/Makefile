@@ -26,13 +26,14 @@ FUNC += ft_strcat
 FUNC += ft_strchr
 FUNC += ft_strcpy
 FUNC += ft_strdup
+FUNC += ft_strlcat
 FUNC += ft_strlen
+FUNC += ft_strncat
 FUNC += ft_strncpy
 FUNC += ft_strrchr
 FUNC += ft_tolower
 FUNC += ft_toupper
 FUNC += ft_putnbr_fd
-FUNC += ft_strlcat
 
 
 

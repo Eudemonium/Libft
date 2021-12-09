@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_test.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 16:50:54 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/09 15:34:06 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/09 17:06:46 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	test_ft_strlen(void);
 int	test_ft_strdup(void);
 int	test_ft_strncpy(void);
 int	test_ft_strcat(void);
+int	test_ft_strncat(void);
+int	test_ft_strlcat(void);
 int	test_ft_strchr(void);
 int	test_ft_strcpy(void);
 int	test_ft_strrchr(void);

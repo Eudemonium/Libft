@@ -1,24 +1,79 @@
-#include <string.h>
-#include <stdio.h>
-#include <libft.h>
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, src, len) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s\"(%lu)\n", src, len); }
 
 int	test_ft_strlcat(void)
 {
-	char	d[4] = "";
-	char	d2[4] = "";
-	
-	printf("%lu\n",strlcat(d, "thx to ntoniolo for this test !", 4));
-	printf("%lu\n",ft_strlcat(d2, "thx to ntoniolo for this test !", 4));
-
-	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
-	char buff1[0xF00] = "there is no stars in the sky";
-	char buff2[0xF00] = "there is no stars in the sky";
-	size_t max = strlen("the cake is a lie !\0I'm hidden lol\r\n") + 4;
-	printf("%lu\n", max);
-
-	size_t r1 = strlcat(buff1, str, max);
-	size_t r2 = ft_strlcat(buff2, str, max);
-	printf("%lu: %s, %lu + %lu\n", r1, buff1, strlen(buff1), strlen(str));
-	printf("%lu: %s, %lu + %lu\n", r2, buff2, strlen(buff2), strlen(str));
-	return (0);
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strlcat";
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "basic strlcat";
+		size_t	num = strlen(src) + 3;
+		char	*dst_1 = (char *)malloc(num);
+		char	*dst_2 = (char *)malloc(num);
+		dst_1 = memset(dst_1, '0', num);
+		dst_2 = memset(dst_2, '0', num);
+		dst_1[1] = '\0';
+		dst_2[1] = '\0';
+		size_t	expect = strlcat(dst_1, src, num);
+		size_t	actual = ft_strlcat(dst_2, src, num);
+		assert(expect == actual && memcmp(dst_1, dst_2, num) == 0, src, num);
+		free(dst_1);
+		free(dst_2);
+	}
+	{
+		char	src[] = "";
+		size_t	num = 3;
+		char	*dst_1 = (char *)malloc(num);
+		char	*dst_2 = (char *)malloc(num);
+		dst_1 = memset(dst_1, '0', num);
+		dst_2 = memset(dst_2, '0', num);
+		dst_1[1] = '\0';
+		dst_2[1] = '\0';
+		size_t	expect = strlcat(dst_1, src, num);
+		size_t	actual = ft_strlcat(dst_2, src, num);
+		assert(expect == actual && memcmp(dst_1, dst_2, num) == 0, src, num);
+		free(dst_1);
+		free(dst_2);
+	}
+	{
+		char	src[] = "super dstsize";
+		size_t	num = 50;
+		char	*dst_1 = (char *)malloc(num);
+		char	*dst_2 = (char *)malloc(num);
+		dst_1 = memset(dst_1, '0', num);
+		dst_2 = memset(dst_2, '0', num);
+		dst_1[1] = '\0';
+		dst_2[1] = '\0';
+		size_t	expect = strlcat(dst_1, src, num);
+		size_t	actual = ft_strlcat(dst_2, src, num);
+		assert(expect == actual && memcmp(dst_1, dst_2, num) == 0, src, num);
+		free(dst_1);
+		free(dst_2);
+	}
+	{
+		char	src[] = "dst len 0";
+		size_t	num = strlen(src) + 1;
+		char	*dst_1 = (char *)malloc(num);
+		char	*dst_2 = (char *)malloc(num);
+		dst_1 = memset(dst_1, '0', num);
+		dst_2 = memset(dst_2, '0', num);
+		dst_1[0] = '\0';
+		dst_2[0] = '\0';
+		size_t	expect = strlcat(dst_1, src, num);
+		size_t	actual = ft_strlcat(dst_2, src, num);
+		assert(expect == actual && memcmp(dst_1, dst_2, num) == 0, src, num);
+		free(dst_1);
+		free(dst_2);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
 }

@@ -16,8 +16,8 @@ int	main(void)
 	test_ft_strcpy();
 	test_ft_strncpy();
 	test_ft_strcat();
-	//test_ft_strncat();
-	//test_ft_strlcat();
+	test_ft_strncat();
+	test_ft_strlcat();
 	test_ft_strchr();
 	test_ft_strrchr();
 	//test_ft_strstr();
