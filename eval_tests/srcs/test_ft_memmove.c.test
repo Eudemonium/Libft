@@ -8,35 +8,35 @@
 #define assert(eval, src, len) \
 	if (eval) ++success; else {++failure; printf("fail: \"(%d) %s\"\n", len, src); }
 
-int	test_ft_memcpy(void)
+int	test_ft_memmove(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 
-	char		*func = "ft_memcpy";
+	char		*func = "ft_memmove";
 	printf("===== %s =====\n", func);
 	{
-		char	src[] = "basic memcpy";
+		char	src[] = "basic memmove";
 		int		num = 14;
 		int		bound = 23;
 		char	*dst_1 = (char *)malloc(bound);
 		char	*dst_2 = (char *)malloc(bound);
 		memset(dst_1, '0', bound);
 		memset(dst_2, '0', bound);
-		char	*expect = (char *)memcpy(dst_1, src, num);
-		char	*actual = (char *)ft_memcpy(dst_2, src, num);
+		char	*expect = (char *)memmove(dst_1 + 1, src, num);
+		char	*actual = (char *)ft_memmove(dst_2 + 1, src, num);
 		assert(memcmp(expect, actual, bound) == 0, src, num);
 	}
 	{
-		char	src[] = " don't copy me !  ";
+		char	src[] = " don't move me !  ";
 		int		num = 0;
 		int		bound = 23;
 		char	*dst_1 = (char *)malloc(bound);
 		char	*dst_2 = (char *)malloc(bound);
 		memset(dst_1, '0', bound);
 		memset(dst_2, '0', bound);
-		char	*expect = (char *)memcpy(dst_1 + 1, src, num);
-		char	*actual = (char *)ft_memcpy(dst_2 + 1, src, num);
+		char	*expect = (char *)memmove(dst_1 + 1, src, num);
+		char	*actual = (char *)ft_memmove(dst_2 + 1, src, num);
 		assert(memcmp(expect, actual, bound) == 0, src, num);
 	}
 	printf("%i of %i tests passed.\n", success, (success + failure));

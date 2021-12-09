@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <libft.h>
 
-int	main(void)
+int	test_ft_strlcat(void)
 {
 	char	d[4] = "";
 	char	d2[4] = "";

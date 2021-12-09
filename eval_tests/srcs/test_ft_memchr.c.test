@@ -1,0 +1,52 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, c, src, len) \
+	if (eval) ++success; else {++failure; printf("fail: \"%c in %s within %d bytes\"\n", c, src, len); }
+
+int	test_ft_memchr(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_memchr";
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "basic memchr";
+		int		num = 12;
+		char	c = 'm';
+		char	*expect = (char *)memchr(src, c, num);
+		char	*actual = (char *)ft_memchr(src, c, num);
+		assert(expect == actual, c, src, num);
+	}
+	{
+		char	src[] = "can't find it  ";
+		int		num = 15;
+		char	c = 'z';
+		char	*expect = (char *)memchr(src, c, num);
+		char	*actual = (char *)ft_memchr(src, c, num);
+		assert(expect == actual, c, src, num);
+	}
+	{
+		char	src[] = "not in n bytes";
+		int		num = 13;
+		char	c = 's';
+		char	*expect = (char *)memchr(src, c, num);
+		char	*actual = (char *)ft_memchr(src, c, num);
+		assert(expect == actual, c, src, num);
+	}
+	{
+		char	src[] = "nothing to see here\0zz";
+		int		num = 21;
+		char	c = 'z';
+		char	*expect = (char *)memchr(src, c, num);
+		char	*actual = (char *)ft_memchr(src, c, num);
+		assert(expect == actual, c, src, num);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

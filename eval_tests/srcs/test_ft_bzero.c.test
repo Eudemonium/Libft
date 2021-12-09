@@ -23,7 +23,7 @@ int	test_ft_bzero(void)
 		memset(actual, '0', bound);
 		bzero(expect + 1, num);
 		ft_bzero(actual + 1, num);
-		assert(memcmp(expect, actual, num) == 0, num);
+		assert(memcmp(expect, actual, bound) == 0, num);
 	}
 	{
 		int		num = 2;
@@ -34,7 +34,7 @@ int	test_ft_bzero(void)
 		memset(actual, '0', bound);
 		bzero(expect + 1, num);
 		ft_bzero(actual + 1, num);
-		assert(memcmp(expect, actual, num) == 0, num);
+		assert(memcmp(expect, actual, bound) == 0, num);
 	}
 	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (failure == 0);

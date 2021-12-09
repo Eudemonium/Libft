@@ -1,0 +1,52 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, s1, s2, len) \
+	if (eval) ++success; else {++failure; printf("fail: \"%d bytes of %s vs %s\"\n", len, s1, s2); }
+
+int	test_ft_memcmp(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_memcmp";
+	printf("===== %s =====\n", func);
+	{
+		char	s1[] = "basic memcmp";
+		char	s2[] = "basic memcmp";
+		int		num = 12;
+		int		expect = memcmp(s1, s2, num);
+		int		actual = ft_memcmp(s1, s2, num);
+		assert(expect == actual, s1, s2, num);
+	}
+	{
+		char	s1[] = "basic memcmp";
+		char	s2[] = " not matched";
+		int		num = 12;
+		int		expect = memcmp(s1, s2, num);
+		int		actual = ft_memcmp(s1, s2, num);
+		assert(expect == actual, s1, s2, num);
+	}
+	{
+		char	s1[] = "";
+		char	s2[] = "\200";
+		int		num = 1;
+		int		expect = memcmp(s1, s2, num);
+		int		actual = ft_memcmp(s1, s2, num);
+		assert(expect == actual, s1, s2, num);
+	}
+	{
+		char	s1[] = "";
+		char	s2[] = "";
+		int		num = 1;
+		int		expect = memcmp(s1, s2, num);
+		int		actual = ft_memcmp(s1, s2, num);
+		assert(expect == actual, s1, s2, num);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

@@ -1,0 +1,38 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+
+int	test_ft_strdup(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strdup";
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "basic strdup";
+		char	*expect = strdup(src);
+		char	*actual = ft_strdup(src);
+		assert(strcmp(expect, actual) == 0, src);
+	}
+	{
+		char	src[] = "";
+		char	*expect = strdup(src);
+		char	*actual = ft_strdup(src);
+		assert(strcmp(expect, actual) == 0, src);
+	}
+	{
+		char	src[] = "\0nothing here";
+		char	*expect = strdup(src);
+		char	*actual = ft_strdup(src);
+		assert(strcmp(expect, actual) == 0, src);
+	}
+
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

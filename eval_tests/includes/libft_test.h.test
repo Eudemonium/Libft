@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_test.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 16:50:54 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/04 15:58:28 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/09 14:35:36 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@
 int	test_ft_memset(void);
 int	test_ft_bzero(void);
 int	test_ft_memccpy(void);
+int	test_ft_memcpy(void);
+int	test_ft_memmove(void);
+int	test_ft_memchr(void);
+int	test_ft_memcmp(void);
 int	test_ft_strlen(void);
+int	test_ft_strdup(void);
 int	test_ft_strncpy(void);
 int	test_ft_strcat(void);
 int	test_ft_strchr(void);
