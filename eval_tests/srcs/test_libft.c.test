@@ -20,10 +20,10 @@ int	main(void)
 	test_ft_strlcat();
 	test_ft_strchr();
 	test_ft_strrchr();
-	//test_ft_strstr();
-	//test_ft_strnstr();
-	//test_ft_strcmp();
-	//test_ft_strncmp();
+	test_ft_strstr();
+	test_ft_strnstr();
+	test_ft_strcmp();
+	test_ft_strncmp();
 	test_ft_atoi();
 	test_ft_isalpha();
 	test_ft_isdigit();

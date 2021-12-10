@@ -1,8 +1,8 @@
 #include "libft.h"
 #include "libft_test.h"
 
-#define assert(eval, src) \
-	if (eval) ++success; else {++failure; printf("fail: \"%s\"\n", src); }
+#define assert(eval, c, src) \
+	if (eval) ++success; else {++failure; printf("fail: \"%c in %s\"\n", c, src); }
 
 int	test_ft_strchr(void)
 {
@@ -12,27 +12,31 @@ int	test_ft_strchr(void)
 	printf("===== %s =====\n", func);
 	{
 		char	src[] = "0000001";
-		char	*expect = strchr(src, '1');
-		char	*actual = ft_strchr(src, '1');
-		assert(expect == actual, src);
+		char	c = '1';
+		char	*expect = strchr(src, c);
+		char	*actual = ft_strchr(src, c);
+		assert(expect == actual, c, src);
 	}
 	{
 		char	src[] = "10000001";
-		char	*expect = strchr(src, '1');
-		char	*actual = ft_strchr(src, '1');
-		assert(expect == actual, src);
+		char	c = '1';
+		char	*expect = strchr(src, c);
+		char	*actual = ft_strchr(src, c);
+		assert(expect == actual, c, src);
 	}
 	{
 		char	src[] = "10000001";
-		char	*expect = strchr(src, 'a');
-		char	*actual = ft_strchr(src, 'a');
-		assert(expect == actual, src);
+		char	c = 'a';
+		char	*expect = strchr(src, c);
+		char	*actual = ft_strchr(src, c);
+		assert(expect == actual, c, src);
 	}
 	{
 		char	src[] = "10000001";
-		char	*expect = strchr(src, 'a');
-		char	*actual = ft_strchr(src, 'a');
-		assert(expect == actual, src);
+		char	c = '\0';
+		char	*expect = strchr(src, c);
+		char	*actual = ft_strchr(src, c);
+		assert(expect == actual, c, src);
 	}
 	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (failure == 0);

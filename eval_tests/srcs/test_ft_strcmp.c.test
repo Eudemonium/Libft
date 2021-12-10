@@ -1,0 +1,70 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, s1, s2) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s vs %s\"\n", s1, s2); }
+
+int	test_ft_strcmp(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_strcmp";
+	printf("===== %s =====\n", func);
+	{
+		char	s1[] = "basic strcmp";
+		char	s2[] = "basic strcmp";
+		int		expect = strcmp(s1, s2);
+		int		actual = ft_strcmp(s1, s2);
+		assert(expect == actual, s1, s2);
+	}
+	{
+		char	s1[] = "basic strcmp";
+		char	s2[] = "basic strcmp000";
+		int		expect = strcmp(s1, s2);
+		int		actual = ft_strcmp(s1, s2);
+		assert(expect == actual, s1, s2);
+	}
+	{
+		char	*s1 = (char *)malloc(sizeof(char) * 2);
+		char	*s2 = (char *)malloc(sizeof(char) * 2);
+		memset(s1, 0, 2);
+		memset(s2, 0, 2);
+		s1[0] = '\200';
+		int		expect = strcmp(s1, s2);
+		int		actual = ft_strcmp(s1, s2);
+		assert(expect == actual, s1, s2);
+		free(s1);
+		free(s2);
+	}
+	{
+		char	*s1 = (char *)malloc(sizeof(char) * 2);
+		char	*s2 = (char *)malloc(sizeof(char) * 2);
+		memset(s1, 0, 2);
+		memset(s2, 0, 2);
+		s1[0] = 'A';
+		s1[0] = 'z';
+		int		expect = strcmp(s1, s2);
+		int		actual = ft_strcmp(s1, s2);
+		assert(expect == actual, s1, s2);
+		free(s1);
+		free(s2);
+	}
+	{
+		char	str1[] = "0\0a";
+		char	str2[] = "0\0Z";
+		char	*s1 = strdup(str1);
+		char	*s2 = strdup(str2);
+		int		expect = strcmp(s1, s2);
+		int		actual = ft_strcmp(s1, s2);
+		assert(expect == actual, s1, s2);
+		free(s1);
+		free(s2);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

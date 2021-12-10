@@ -1,0 +1,63 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#define assert(eval, needle, haystack, num) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s in (%lu)%s\"\n", needle, num, haystack); }
+
+int	test_ft_strnstr(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strnstr";
+	printf("===== %s =====\n", func);
+	{
+		char	haystack[] = "empty needle";
+		char	needle[] = "";
+		size_t	num = strlen(haystack);
+		char	*expect = strnstr(haystack, needle, num);
+		char	*actual = ft_strnstr(haystack, needle, num);
+		assert(expect == actual, needle, haystack, num);
+	}
+	{
+		char	haystack[] = "";
+		char	needle[] = "empty haystack";
+		size_t	num = strlen(haystack);
+		char	*expect = strnstr(haystack, needle, num);
+		char	*actual = ft_strnstr(haystack, needle, num);
+		assert(expect == actual, needle, haystack, num);
+	}
+	{
+		char	haystack[] = "";
+		char	needle[] = " ";
+		size_t	num = strlen(haystack) + 1;
+		char	*expect = strnstr(haystack, needle, num);
+		char	*actual = ft_strnstr(haystack, needle, num);
+		assert(expect == actual, needle, haystack, num);
+	}
+	{
+		char	haystack[] = "11111a";
+		char	needle[] = "a";
+		size_t	num = strlen(haystack) - 1;
+		char	*expect = strnstr(haystack, needle, num);
+		char	*actual = ft_strnstr(haystack, needle, num);
+		assert(expect == actual, needle, haystack, num);
+	}
+	{
+		char	haystack[] = "oversized needle";
+		char	needle[] = "oversized needle   ";
+		size_t	num = strlen(haystack);
+		char	*expect = strnstr(haystack, needle, num);
+		char	*actual = ft_strnstr(haystack, needle, num);
+		assert(expect == actual, needle, haystack, num);
+	}
+	{
+		char	haystack[] = "not here";
+		char	needle[] = ":(";
+		size_t	num = strlen(haystack);
+		char	*expect = strnstr(haystack, needle, num);
+		char	*actual = ft_strnstr(haystack, needle, num);
+		assert(expect == actual, needle, haystack, num);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}
