@@ -36,10 +36,10 @@ int	main(void)
 	printf("[Second part]\n");
 	//Second part
 	test_ft_memalloc();
-	//test_ft_memdel();
-	//test_ft_strnew();
-	//test_ft_strdel();
-	//test_ft_strclr();
+	test_ft_memdel();
+	test_ft_strnew();
+	test_ft_strdel();
+	test_ft_strclr();
 	//test_ft_striter();
 	//test_ft_striteri();
 	//test_ft_strmap();

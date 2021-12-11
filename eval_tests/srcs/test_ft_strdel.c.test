@@ -1,0 +1,28 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+
+int	test_ft_strdel(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strdel";
+	printf("===== %s =====\n", func);
+	{
+		char	desc[] = "basic strdel";
+		char	*expect = (char *)malloc(30);
+		char	*actual = (char *)malloc(30);
+		free(expect);
+		expect = NULL;
+		ft_strdel(&actual);
+		assert(expect == actual, desc);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

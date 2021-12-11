@@ -27,6 +27,18 @@ int	test_ft_atoi(void)
 		assert(expect == actual, string);
 	}
 	{
+		char	*string = "   +2147483647";
+		int		expect = atoi(string);
+		int		actual = ft_atoi(string);
+		assert(expect == actual, string);
+	}
+	{
+		char	*string = "-1 + 2";
+		int		expect = atoi(string);
+		int		actual = ft_atoi(string);
+		assert(expect == actual, string);
+	}
+	{
 		char	*string = "-2147483649";
 		int		expect = atoi(string);
 		int		actual = ft_atoi(string);
