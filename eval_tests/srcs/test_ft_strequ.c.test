@@ -1,0 +1,56 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, s1, s2) \
+	if (eval) ++success; else {++failure; printf("fail: \"%s vs %s\"\n", s1, s2); }
+
+int	test_ft_strequ(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_strequ";
+	printf("===== %s =====\n", func);
+	{
+		char	s1[] = "basic strequ";
+		char	s2[] = "basic strequ";
+		int		actual = ft_strequ(s1, s2);
+		assert(actual == 1, s1, s2);
+	}
+	{
+		char	s1[] = "basic strequ";
+		char	s2[] = "basic strequ000";
+		int		actual = ft_strequ(s1, s2);
+		assert(actual == 0, s1, s2);
+	}
+	{
+		char	str1[] = "0\0a";
+		char	str2[] = "0\0Z";
+		int		actual = ft_strequ(str1, str2);
+		assert(actual == 1, str1, str2);
+	}
+	{
+		char	str1[] = "";
+		char	str2[] = "";
+		int		actual = ft_strequ(str1, str2);
+		assert(actual == 1, str1, str2);
+	}
+	{
+		char	str1[] = "";
+		char	str2[] = "0";
+		int		actual = ft_strequ(str1, str2);
+		assert(actual == 0, str1, str2);
+	}
+	{
+		char	str1[] = "0";
+		char	str2[] = "";
+		int		actual = ft_strequ(str1, str2);
+		assert(actual == 0, str1, str2);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

@@ -8,29 +8,34 @@
 #define assert(eval, test) \
 	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
 
-int	test_ft_strclr(void)
+static void	f_striteri(unsigned index, char *c)
+{
+	if (index % 2 == 0)
+		*c = 'O';
+	else
+		*c = 'X';
+}
+
+int	test_ft_striteri(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
-	char		*func = "ft_strclr";
+	char		*func = "ft_striteri";
+
 	printf("===== %s =====\n", func);
 	{
-		char	src[] = "basic strclr";
-		size_t	len = strlen(src);
+		char	src[] = "basic striteri";
 		char	*expect = strdup(src);
+		size_t	size = strlen(src);
+		for (size_t i = 0; i < size; i++)
+		{
+			f_striteri(i, expect + i);
+		}
 		char	*actual = strdup(src);
-		bzero(expect, len);
-		ft_strclr(actual);
-		assert(memcmp(expect, actual, len) == 0, src);
-	}
-	{
-		char	src[] = "";
-		size_t	len = strlen(src);
-		char	*expect = strdup(src);
-		char	*actual = strdup(src);
-		bzero(expect, len);
-		ft_strclr(actual);
-		assert(memcmp(expect, actual, len) == 0, src);
+		ft_striteri(actual, f_striteri);
+		assert(strcmp(expect, actual) == 0, src);
+		free(expect);
+		free(actual);
 	}
 	printf("%i of %i tests passed.\n", success, (success + failure));
 	return (failure == 0);

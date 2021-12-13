@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 16:50:54 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/11 21:37:44 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/13 19:46:08 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ int	test_ft_memdel(void);
 int	test_ft_strnew(void);
 int	test_ft_strdel(void);
 int	test_ft_strclr(void);
+int	test_ft_striter(void);
+int	test_ft_striteri(void);
+int	test_ft_strmap(void);
+int	test_ft_strmapi(void);
+int	test_ft_strequ(void);
+int	test_ft_strnequ(void);
+int	test_ft_strsub(void);
 int	test_ft_itoa(void);
 
 #endif

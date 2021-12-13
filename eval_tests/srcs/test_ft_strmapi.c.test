@@ -1,0 +1,39 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+
+static char	f_strmapi(unsigned index, char c)
+{
+	return (c + index);
+}
+
+int	test_ft_strmapi(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strmapi";
+
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "basic strmapi";
+		size_t	size = strlen(src);
+		char	*expect = (char *)malloc(size + 1);
+		expect[size] = '\0';
+		for (size_t i = 0; i < size; i++)
+		{
+			expect[i] = f_strmapi(i, src[i]);
+		}
+		char	*actual = ft_strmapi(src, f_strmapi);
+		assert(strcmp(expect, actual) == 0, src);
+		free(expect);
+		free(actual);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

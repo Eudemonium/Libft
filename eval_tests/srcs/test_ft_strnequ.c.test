@@ -1,0 +1,62 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, s1, s2, len) \
+	if (eval) ++success; else {++failure; printf("fail: \"(%lu) %s vs %s\"\n", len, s1, s2); }
+
+int	test_ft_strnequ(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_strnequ";
+	printf("===== %s =====\n", func);
+	{
+		char	s1[] = "basic strnequ";
+		char	s2[] = "basic strnequ";
+		size_t	len = strlen(s1);
+		int		actual = ft_strnequ(s1, s2, len);
+		assert(actual == 1, s1, s2, len);
+	}
+	{
+		char	s1[] = "basic strnequ";
+		char	s2[] = "basic strnequ000";
+		size_t	len = strlen(s1);
+		int		actual = ft_strnequ(s1, s2, len);
+		assert(actual == 1, s1, s2, len);
+	}
+	{
+		char	s1[] = "basic strnequ";
+		char	s2[] = "basic strnequ000";
+		size_t	len = strlen(s2);
+		int		actual = ft_strnequ(s1, s2, len);
+		assert(actual == 0, s1, s2, len);
+	}
+	{
+		char	str1[] = "0\0a";
+		char	str2[] = "0\0Z";
+		size_t	len = strlen(str1);
+		int		actual = ft_strnequ(str1, str2, len);
+		assert(actual == 1, str1, str2, len);
+	}
+	{
+		char	str1[] = "";
+		char	str2[] = "";
+		size_t	len = strlen(str1);
+		int		actual = ft_strnequ(str1, str2, len);
+		assert(actual == 1, str1, str2, len);
+	}
+	{
+		char	str1[] = "0";
+		char	str2[] = "0";
+		size_t	len = strlen(str1) + 10;
+		int		actual = ft_strnequ(str1, str2, len);
+		assert(actual == 1, str1, str2, len);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

@@ -40,12 +40,12 @@ int	main(void)
 	test_ft_strnew();
 	test_ft_strdel();
 	test_ft_strclr();
-	//test_ft_striter();
-	//test_ft_striteri();
-	//test_ft_strmap();
-	//test_ft_strmapi();
-	//test_ft_strequ();
-	//test_ft_strnequ();
+	test_ft_striter();
+	test_ft_striteri();
+	test_ft_strmap();
+	test_ft_strmapi();
+	test_ft_strequ();
+	test_ft_strnequ();
 	//test_ft_strsub();
 	//test_ft_strjoin();
 	//test_ft_strtrim();

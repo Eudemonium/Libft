@@ -1,0 +1,32 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+
+static void	f_striter(char *c)
+{
+	*c = 'X';
+}
+
+int	test_ft_striter(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_striter";
+
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "basic striter";
+		char	expect[] = "XXXXXXXXXXXXX";
+		char	*actual = strdup(src);
+		ft_striter(actual, f_striter);
+		assert(strcmp(expect, actual) == 0, src);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

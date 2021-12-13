@@ -1,0 +1,39 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+
+static char	f_strmap(char c)
+{
+	return(c - 10);
+}
+
+int	test_ft_strmap(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_strmap";
+
+	printf("===== %s =====\n", func);
+	{
+		char	src[] = "basic strmap";
+		size_t	size = strlen(src);
+		char	*expect = strdup(src);
+		for (size_t i = 0; i < size; i++)
+		{
+			expect[i] = f_strmap(src[i]);
+		}
+		expect[size] = 0;
+		char	*actual = ft_strmap(src, f_strmap);
+		assert(strcmp(expect, actual) == 0, src);
+		free(expect);
+		free(actual);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}
