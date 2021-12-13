@@ -6,17 +6,17 @@
 #endif
 
 #define assert(eval, src, start, len) \
-	if (eval) ++success; else {++failure; printf("fail: (%lu, %lu) %s\n", start, len, src); }
+	if (eval) ++success; else {++failure; printf("\nfail: (%lu, %lu) %s\n", start, len, src); }
 
 int	test_ft_strsub(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_strsub";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char src[] = "Basic strsub.";
-		size_t	start = 5;
+		size_t	start = 6;
 		size_t	len = 6;
 		char	expect[] = "strsub";
 		char	*actual = ft_strsub(src, start, len);

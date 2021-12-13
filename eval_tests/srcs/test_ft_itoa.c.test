@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: \"%d\"\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%d\"\n", test); }
 
 int	test_ft_itoa(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_itoa";
-	printf("===== %s =====\n", func);
+	printf("%s\t\t", func);
 	{
 		int		num = INT_MIN;
 		char	*expect = "-2147483648";

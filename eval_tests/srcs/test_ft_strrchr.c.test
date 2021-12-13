@@ -2,14 +2,14 @@
 #include "libft_test.h"
 
 #define assert(eval, c, src) \
-	if (eval) ++success; else {++failure; printf("fail: \"%c in %s\"\n", c, src); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%c in %s\"\n", c, src); }
 
 int	test_ft_strrchr(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_strrchr";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "0000001";
 		char	c = '1';

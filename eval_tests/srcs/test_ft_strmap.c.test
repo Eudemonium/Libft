@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
 
 static char	f_strmap(char c)
 {
@@ -19,7 +19,7 @@ int	test_ft_strmap(void)
 	unsigned	failure = 0;
 	char		*func = "ft_strmap";
 
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic strmap";
 		size_t	size = strlen(src);

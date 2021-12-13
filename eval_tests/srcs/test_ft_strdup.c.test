@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
 
 int	test_ft_strdup(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_strdup";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic strdup";
 		char	*expect = strdup(src);

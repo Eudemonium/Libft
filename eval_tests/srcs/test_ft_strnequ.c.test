@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, s1, s2, len) \
-	if (eval) ++success; else {++failure; printf("fail: \"(%lu) %s vs %s\"\n", len, s1, s2); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"(%lu) %s vs %s\"\n", len, s1, s2); }
 
 int	test_ft_strnequ(void)
 {
@@ -14,7 +14,7 @@ int	test_ft_strnequ(void)
 	unsigned	failure = 0;
 
 	char		*func = "ft_strnequ";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	s1[] = "basic strnequ";
 		char	s2[] = "basic strnequ";

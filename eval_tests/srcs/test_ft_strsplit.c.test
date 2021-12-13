@@ -1,0 +1,65 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, src, delim) \
+	if (eval) ++success; else {++failure; printf("\nfail: \"%c: %s\"\n", delim, src); }
+
+static void	free_array(char **ptr)
+{
+	size_t	i = 0;
+	while (*ptr)
+	{
+		free(ptr[i]);
+		ptr[i] = NULL;
+		i++;
+	}
+	free(ptr);
+	ptr = NULL;
+}
+
+int	test_ft_strsplit(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_strsplit";
+	printf("%s\t", func);
+	{
+		char	src[] = "**split***this***string";
+		char	delim = '*';
+		char	**expect = ((char*[4]){"split", "this", "string", NULL});
+		char	**actual = ft_strsplit(src, delim);
+		assert(strcmp(expect[0], actual[0]) == 0, src, delim);
+		free_array(actual);
+	}
+	{
+		char	src[] = "basic   split   string    input   ";
+		char	delim = ' ';
+		char	**expect = ((char*[5]){"basic", "split", "string", "input", NULL});
+		char	**actual = ft_strsplit(src, delim);
+		assert(strcmp(expect[0], actual[0]) == 0, src, delim);
+		free_array(actual);
+	}
+	{
+		char	src[] = "still more  basic  \n  \ninput   ";
+		char	delim = ' ';
+		char	**expect = ((char*[6]){"still", "more", "basic", "\n", "\ninput", NULL});
+		char	**actual = ft_strsplit(src, delim);
+		assert(strcmp(expect[3], actual[3]) == 0, src, delim);
+		free_array(actual);
+	}
+	{
+		char	src[] = "nothing to split";
+		char	delim = 'Z';
+		char	**expect = ((char*[2]){"nothing to split", NULL});
+		char	**actual = ft_strsplit(src, delim);
+		assert(strcmp(expect[0], actual[0]) == 0, src, delim);
+		free_array(actual);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

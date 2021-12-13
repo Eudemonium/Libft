@@ -1,0 +1,48 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, src) \
+	if (eval) ++success; else {++failure; printf("\nfail: \"%s\"\n", src); }
+
+int	test_ft_strtrim(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_strtrim";
+	printf("%s\t", func);
+	{
+		char	src[] = "\n\n\tbasic   strtrim  \n  \t";
+		char	*expect = "basic   strtrim";
+		char	*actual = ft_strtrim(src);
+		assert(strcmp(expect, actual) == 0, src);
+		free(actual);
+	}
+	{
+		char	src[] = "\n\n\tbasic  \nstrtrim  \0  \t";
+		char	*expect = "basic  \nstrtrim";
+		char	*actual = ft_strtrim(src);
+		assert(strcmp(expect, actual) == 0, src);
+		free(actual);
+	}
+	{
+		char	src[] = "nothing to trim";
+		char	*expect = "nothing to trim";
+		char	*actual = ft_strtrim(src);
+		assert(strcmp(expect, actual) == 0, src);
+		free(actual);
+	}
+	{
+		char	src[] = "";
+		char	*expect = "";
+		char	*actual = ft_strtrim(src);
+		assert(strcmp(expect, actual) == 0, src);
+		free(actual);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

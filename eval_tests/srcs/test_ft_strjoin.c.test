@@ -1,0 +1,44 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, str1, str2) \
+	if (eval) ++success; else {++failure; printf("\nfail: \"%s + %s\"\n", str1, str2); }
+
+int	test_ft_strjoin(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_strjoin";
+	printf("%s\t", func);
+	{
+		char	str1[] = "basic ";
+		char	str2[] = "strjoin";
+		char	expect[] = "basic strjoin";
+		char	*actual = ft_strjoin(str1, str2);
+		assert(strcmp(expect, actual) == 0, str1, str2);
+		free(actual);
+	}
+	{
+		char	str1[] = "";
+		char	str2[] = "empty str1";
+		char	expect[] = "empty str1";
+		char	*actual = ft_strjoin(str1, str2);
+		assert(strcmp(expect, actual) == 0, str1, str2);
+		free(actual);
+	}
+	{
+		char	str1[] = "empty str2";
+		char	str2[] = "";
+		char	expect[] = "empty str2";
+		char	*actual = ft_strjoin(str1, str2);
+		assert(strcmp(expect, actual) == 0, str1, str2);
+		free(actual);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

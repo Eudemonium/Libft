@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, c, src, len) \
-	if (eval) ++success; else {++failure; printf("fail: \"%c in %s within %d bytes\"\n", c, src, len); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%c in %s within %d bytes\"\n", c, src, len); }
 
 int	test_ft_memchr(void)
 {
@@ -14,7 +14,7 @@ int	test_ft_memchr(void)
 	unsigned	failure = 0;
 
 	char		*func = "ft_memchr";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic memchr";
 		int		num = 12;

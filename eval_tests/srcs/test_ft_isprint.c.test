@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: \"%c\"\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%c\"\n", test); }
 
 int	test_ft_isprint(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_isprint";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		int		num = 000;
 		int		expect = isprint(num);

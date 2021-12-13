@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, src) \
-	if (eval) ++success; else {++failure; printf("fail: \"%s\"\n", src); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%s\"\n", src); }
 
 int	test_ft_strcat(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_strcat";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic strcat";
 		char	*dst_1 = (char *)malloc(25);

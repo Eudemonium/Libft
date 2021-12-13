@@ -33,7 +33,7 @@ int	main(void)
 	test_ft_toupper();
 	test_ft_tolower();
 
-	printf("[Second part]\n");
+	printf("\n[Second part]\n");
 	//Second part
 	test_ft_memalloc();
 	test_ft_memdel();
@@ -46,10 +46,10 @@ int	main(void)
 	test_ft_strmapi();
 	test_ft_strequ();
 	test_ft_strnequ();
-	//test_ft_strsub();
-	//test_ft_strjoin();
-	//test_ft_strtrim();
-	//test_ft_strsplit();
+	test_ft_strsub();
+	test_ft_strjoin();
+	test_ft_strtrim();
+	test_ft_strsplit();
 	test_ft_itoa();
 	//test_ft_putchar();
 	//test_ft_putstr();

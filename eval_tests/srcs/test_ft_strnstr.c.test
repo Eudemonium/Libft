@@ -2,14 +2,14 @@
 #include "libft_test.h"
 
 #define assert(eval, needle, haystack, num) \
-	if (eval) ++success; else {++failure; printf("fail: \"%s in (%lu)%s\"\n", needle, num, haystack); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%s in (%lu)%s\"\n", needle, num, haystack); }
 
 int	test_ft_strnstr(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_strnstr";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	haystack[] = "empty needle";
 		char	needle[] = "";

@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
 
 static void	f_striteri(unsigned index, char *c)
 {
@@ -22,7 +22,7 @@ int	test_ft_striteri(void)
 	unsigned	failure = 0;
 	char		*func = "ft_striteri";
 
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic striteri";
 		char	*expect = strdup(src);

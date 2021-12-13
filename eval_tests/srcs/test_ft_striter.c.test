@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
 
 static void	f_striter(char *c)
 {
@@ -19,7 +19,7 @@ int	test_ft_striter(void)
 	unsigned	failure = 0;
 	char		*func = "ft_striter";
 
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic striter";
 		char	expect[] = "XXXXXXXXXXXXX";

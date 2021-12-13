@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: n = %d\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: n = %d\n", test); }
 
 int	test_ft_memset(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_memset";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		int		num = 0;
 		int		bound = 3;

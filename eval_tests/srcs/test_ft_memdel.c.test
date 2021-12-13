@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: %s\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
 
 int	test_ft_memdel(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_memdel";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	desc[] = "basic memdel";
 		char	*expect = (char *)malloc(30);

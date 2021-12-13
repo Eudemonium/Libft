@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, s1, s2, len) \
-	if (eval) ++success; else {++failure; printf("fail: \"%d bytes of %s vs %s\"\n", len, s1, s2); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%d bytes of %s vs %s\"\n", len, s1, s2); }
 
 int	test_ft_memcmp(void)
 {
@@ -14,7 +14,7 @@ int	test_ft_memcmp(void)
 	unsigned	failure = 0;
 
 	char		*func = "ft_memcmp";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	s1[] = "basic memcmp";
 		char	s2[] = "basic memcmp";

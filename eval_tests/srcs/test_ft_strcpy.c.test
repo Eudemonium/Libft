@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, src) \
-	if (eval) ++success; else {++failure; printf("fail: \"%s\"\n", src); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%s\"\n", src); }
 
 int	test_ft_strcpy(void)
 {
@@ -14,7 +14,7 @@ int	test_ft_strcpy(void)
 	unsigned	failure = 0;
 
 	char		*func = "ft_strcpy";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic strcpy";
 		int		len= 20;

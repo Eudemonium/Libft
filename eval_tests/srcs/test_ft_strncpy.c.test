@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, src, len) \
-	if (eval) ++success; else {++failure; printf("fail: \"%s\"(%d)\n", src, len); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%s\"(%d)\n", src, len); }
 
 int	test_ft_strncpy(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_strncpy";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic string copy";
 		char	*dst_1 = (char *)malloc(25);

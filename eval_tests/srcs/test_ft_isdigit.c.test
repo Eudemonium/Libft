@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("fail: \"%d\"\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%d\"\n", test); }
 
 int	test_ft_isdigit(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_isdigit";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		int		num = 000;
 		int		expect = isdigit(num);

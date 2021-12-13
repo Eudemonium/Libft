@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, s1, s2, num) \
-	if (eval) ++success; else {++failure; printf("fail: \"(%lu) %s vs %s\"\n", num, s1, s2); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"(%lu) %s vs %s\"\n", num, s1, s2); }
 
 int	test_ft_strncmp(void)
 {
@@ -14,7 +14,7 @@ int	test_ft_strncmp(void)
 	unsigned	failure = 0;
 
 	char		*func = "ft_strncmp";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	s1[] = "basic strncmp";
 		char	s2[] = "basic strncmp";

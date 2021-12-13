@@ -6,14 +6,14 @@
 #endif
 
 #define assert(eval, src, c, len) \
-	if (eval) ++success; else {++failure; printf("fail: \"%s: ('%c', %lu)\"\n", src, c, len); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%s: ('%c', %lu)\"\n", src, c, len); }
 
 int	test_ft_memccpy(void)
 {
 	unsigned	success = 0;
 	unsigned	failure = 0;
 	char		*func = "ft_memccpy";
-	printf("===== %s =====\n", func);
+	printf("%s\t", func);
 	{
 		char	src[] = "basic memccpy";
 		char	c = 'm';
