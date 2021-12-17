@@ -3,11 +3,12 @@
 
 int	main(void)
 {
+	printf("Bonus Bonus");
 	test_ft_max();
-	//test_ft_pow();
-	//test_ft_iswhitespace();
-	//test_ft_intlen();
-	//test_ft_strccpy();
+	test_ft_pow();
+	test_ft_isspace();
+	test_ft_intlen();
+	test_ft_strccpy();
 	//test_ft_lstaddback();
 	return (0);
 }

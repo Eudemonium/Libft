@@ -1,0 +1,47 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, base, exp) \
+	if (eval) ++success; else {++failure; printf("\nfail: \"%d^%d\"\n", base, exp); }
+
+int	test_ft_pow(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_pow";
+	printf("%s\t\t", func);
+	{
+		int		base = 2;
+		int		exp = 0;
+		int		actual = ft_pow(base, exp);
+		int		expect = pow(base, exp);
+		assert(expect == actual, base, exp);
+	}
+	{
+		int		base = 2;
+		int		exp = 2;
+		int		actual = ft_pow(base, exp);
+		int		expect = pow(base, exp);
+		assert(expect == actual, base, exp);
+	}
+	{
+		int		base = 0;
+		int		exp = 2;
+		int		actual = ft_pow(base, exp);
+		int		expect = pow(base, exp);
+		assert(expect == actual, base, exp);
+	}
+	{
+		int		base = 2;
+		int		exp = 1;
+		int		actual = ft_pow(base, exp);
+		int		expect = pow(base, exp);
+		assert(expect == actual, base, exp);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

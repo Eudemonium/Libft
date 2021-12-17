@@ -1,0 +1,38 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, src, c) \
+	if (eval) ++success; else {++failure; printf("\nfail: \"(%c) %s\"\n", c, src); }
+
+int	test_ft_strccpy(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+
+	char		*func = "ft_strccpy";
+	printf("%s\t", func);
+	{
+		char	src[] = "basic strccpy";
+		char	c = ' ';
+		char	expect[] = "basic";
+		char	*actual = (char *)malloc(strlen(src));
+		ft_strccpy(actual, src, c);
+		assert(strcmp(expect, actual) == 0, src, c);
+		free(actual);
+	}
+	{
+		char	src[] = "basic strccpy";
+		char	c = 'z';
+		char	expect[] = "basic strccpy";
+		char	*actual = (char *)malloc(strlen(src));
+		ft_strccpy(actual, src, c);
+		assert(strcmp(expect, actual) == 0, src, c);
+		free(actual);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

@@ -66,6 +66,10 @@ SRCS += $(SRC_DIR)test_libft.c
 
 BONUS = test_bonus
 SRCS_B += $(SRC_DIR)test_ft_max.c
+SRCS_B += $(SRC_DIR)test_ft_pow.c
+SRCS_B += $(SRC_DIR)test_ft_intlen.c
+SRCS_B += $(SRC_DIR)test_ft_isspace.c
+SRCS_B += $(SRC_DIR)test_ft_strccpy.c
 SRCS_B += $(SRC_DIR)test_libftbonus.c
 
 all: $(NAME)
@@ -82,7 +86,7 @@ $(BONUS): mv_c
 	$(CC) $(CFLAGS) $(LIB) $(INCLUDES) $(OPTION) $(BONUS) $(SRCS_B)
 
 mv_c:
-	for file in $(SRCS) + $(SRCS_B); \
+	for file in $(SRCS) $(SRCS_B); \
 	do if [ -f $${file}.test ]; \
 	then mv $${file}.test $$file; \
 	fi; done 
@@ -91,7 +95,7 @@ mv_c:
 	fi; 
 
 mv_test:
-	for file in $(SRCS) + $(SRCS_B); \
+	for file in $(SRCS) $(SRCS_B); \
 	do if [ -f $$file ]; \
 	then mv $$file $${file}.test; \
 	fi; done 

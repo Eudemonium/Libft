@@ -1,0 +1,67 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("\nfail: \"%c\"\n", test); }
+
+int	test_ft_isspace(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_isspace";
+	printf("%s\t", func);
+	{
+		char	c = ' ';
+		int		expect = isspace(c);
+		int		actual = ft_isspace(c);
+		assert(expect == actual, c);
+	}
+	{
+		char	c = '\n';
+		int		expect = isspace(c);
+		int		actual = ft_isspace(c);
+		assert(expect == actual, c);
+	}
+	{
+		char	c = '\t';
+		int		expect = isspace(c);
+		int		actual = ft_isspace(c);
+		assert(expect == actual, c);
+	}
+	{
+		char	c = '\r';
+		int		expect = isspace(c);
+		int		actual = ft_isspace(c);
+		assert(expect == actual, c);
+	}
+	{
+		char	c = '\v';
+		int		expect = isspace(c);
+		int		actual = ft_isspace(c);
+		assert(expect == actual, c);
+	}
+	{
+		char	c = '\f';
+		int		expect = isspace(c);
+		int		actual = ft_isspace(c);
+		assert(expect == actual, c);
+	}
+	{
+		char	c = '\0';
+		int		expect = isspace(c);
+		int		actual = ft_isspace(c);
+		assert(expect == actual, c);
+	}
+	{
+		char	c = 'c';
+		int		expect = isspace(c);
+		int		actual = ft_isspace(c);
+		assert(expect == actual, c);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}
