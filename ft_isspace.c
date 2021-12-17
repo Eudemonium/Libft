@@ -6,13 +6,13 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 15:00:59 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/23 13:41:57 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/17 19:58:38 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_iswhitespace(char c)
+int	ft_isspace(char c)
 {
 	return (c == ' ' || \
 			c == '\t' || \

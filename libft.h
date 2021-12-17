@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/08 15:11:07 by jagagas          ###   ########.fr       */
+/*   Updated: 2021/12/17 19:59:39 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void			ft_putendl(char const *s);
 char			*ft_itoa(int n);
 
 unsigned int	ft_intlen(int n);
-unsigned int	ft_pow(int base, int exponent);
+unsigned int	ft_pow(int base, unsigned int exponent);
 int				ft_max(int a, int b);
-int				ft_iswhitespace(char c);
+int				ft_isspace(char c);
 char			*ft_strccpy(char *dst, char const *src, char c);
 
 typedef struct s_list
