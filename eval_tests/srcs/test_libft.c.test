@@ -51,14 +51,14 @@ int	main(void)
 	test_ft_strtrim();
 	test_ft_strsplit();
 	test_ft_itoa();
-	//test_ft_putchar();
-	//test_ft_putstr();
-	//test_ft_putendl();
-	//test_ft_putnbr();
-	//test_ft_putchar_fd();
-	//test_ft_putstr_fd();
-	//test_ft_putendl_fd();
-	//test_ft_putnbr_fd();
+	test_ft_putchar();
+	test_ft_putstr();
+	test_ft_putendl();
+	test_ft_putnbr();
+	test_ft_putchar_fd();
+	test_ft_putstr_fd();
+	test_ft_putendl_fd();
+	test_ft_putnbr_fd();
 
 	//Bonus Part
 	//test_ft_lstnew();

@@ -1,0 +1,35 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("\nfail: %c\n", test); }
+
+int	test_ft_putchar_fd(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_putchar_fd";
+
+	printf("%s\t", func);
+	{
+		char	c = 'c';
+		char	buf[2];
+		buf[1] = 0;
+		char	file[] = "./output/ft_putchar_fd";
+		int		fd = open(file, O_WRONLY|O_CREAT, 0755);
+		dup2(fd, STDERR_FILENO);
+		ft_putchar_fd(c, STDERR_FILENO);
+		close(STDERR_FILENO);
+		close(fd);
+		fd = open(file, O_RDONLY);
+		read(fd, buf, 2);
+		assert(buf[0] == c, c);
+		close(fd);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

@@ -1,0 +1,54 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
+
+int	test_ft_putendl_fd(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_putendl_fd";
+
+	printf("%s\t", func);
+	{
+		int		out = dup(STDERR_FILENO);
+		char	*string = "basic putendl_fd";
+		size_t	len = strlen(string);
+		char	buf[len + 2];
+		char	*file = "./output/ft_putendl_fd";
+		int	fd = open(file, O_RDWR|O_CREAT, 0755);
+		dup2(fd, STDERR_FILENO);
+		ft_putendl_fd(string, STDERR_FILENO);
+		lseek(fd, 0, SEEK_SET);
+		size_t ret = read(fd, buf, len + 1);
+		buf[ret] = 0;
+		dup2(out, STDERR_FILENO);
+		close(out);
+		close(fd);
+		assert(buf[len] == '\n', string);
+	}
+	{
+		int		out = dup(STDERR_FILENO);
+		char	*string = "";
+		size_t	len = strlen(string);
+		char	buf[len + 2];
+		char	*file = "./output/ft_putendl_fd";
+		int	fd = open(file, O_RDWR|O_CREAT, 0755);
+		dup2(fd, STDERR_FILENO);
+		ft_putendl_fd(string, STDERR_FILENO);
+		lseek(fd, 0, SEEK_SET);
+		size_t ret = read(fd, buf, len + 1);
+		buf[ret] = 0;
+		dup2(out, STDERR_FILENO);
+		close(out);
+		close(fd);
+		assert(buf[len] == '\n', string);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

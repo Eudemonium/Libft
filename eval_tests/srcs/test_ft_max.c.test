@@ -1,0 +1,33 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, a, b) \
+	if (eval) ++success; else {++failure; printf("\nfail: \"(%d, %d)\"\n", a, b); }
+
+int	test_ft_max(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_max";
+	printf("%s\t\t", func);
+	{
+		int		int_a = 0;
+		int		int_b = 0;
+		int		actual = ft_max(int_a, int_b);
+		int		expect = MAX(int_a, int_b);
+		assert(expect == actual, int_a, int_b);
+	}
+	{
+		int		int_a = -1000;
+		int		int_b = 1000;
+		int		actual = ft_max(int_a, int_b);
+		int		expect = MAX(int_a, int_b);
+		assert(expect == actual, int_a, int_b);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

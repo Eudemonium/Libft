@@ -51,13 +51,22 @@ FUNC += ft_strsplit
 FUNC += ft_strstr
 FUNC += ft_tolower
 FUNC += ft_toupper
+FUNC += ft_putchar
+FUNC += ft_putchar_fd
+FUNC += ft_putendl
+FUNC += ft_putendl_fd
+FUNC += ft_putnbr
 FUNC += ft_putnbr_fd
-
-
+FUNC += ft_putstr
+FUNC += ft_putstr_fd
 
 SRCS := $(addprefix $(SRC_DIR)test_,$(FUNC))
 SRCS := $(addsuffix .c,$(SRCS))
 SRCS += $(SRC_DIR)test_libft.c
+
+BONUS = test_bonus
+SRCS_B += $(SRC_DIR)test_ft_max.c
+SRCS_B += $(SRC_DIR)test_libftbonus.c
 
 all: $(NAME)
 
@@ -67,10 +76,13 @@ $(NAME): mv_c
 clean:
 
 fclean: clean
-	/bin/rm -f $(NAME) 
+	/bin/rm -f $(NAME) $(BONUS)
+
+$(BONUS): mv_c
+	$(CC) $(CFLAGS) $(LIB) $(INCLUDES) $(OPTION) $(BONUS) $(SRCS_B)
 
 mv_c:
-	for file in $(SRCS); \
+	for file in $(SRCS) + $(SRCS_B); \
 	do if [ -f $${file}.test ]; \
 	then mv $${file}.test $$file; \
 	fi; done 
@@ -79,7 +91,7 @@ mv_c:
 	fi; 
 
 mv_test:
-	for file in $(SRCS); \
+	for file in $(SRCS) + $(SRCS_B); \
 	do if [ -f $$file ]; \
 	then mv $$file $${file}.test; \
 	fi; done 

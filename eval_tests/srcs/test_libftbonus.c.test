@@ -1,0 +1,13 @@
+#include "libft.h"
+#include "libft_test.h"
+
+int	main(void)
+{
+	test_ft_max();
+	//test_ft_pow();
+	//test_ft_iswhitespace();
+	//test_ft_intlen();
+	//test_ft_strccpy();
+	//test_ft_lstaddback();
+	return (0);
+}
