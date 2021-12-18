@@ -72,12 +72,25 @@ SRCS_B += $(SRC_DIR)test_ft_isspace.c
 SRCS_B += $(SRC_DIR)test_ft_strccpy.c
 SRCS_B += $(SRC_DIR)test_libftbonus.c
 
-all: $(NAME)
+OUTPUT_DIR = output/
+OUTPUT := ft_putchar
+OUTPUT += ft_putchar_fd
+OUTPUT += ft_putendl
+OUTPUT += ft_putendl_fd
+OUTPUT += ft_putnbr
+OUTPUT += ft_putnbr_fd
+OUTPUT += ft_putstr
+OUTPUT += ft_putstr_fd
+OUTPUT := $(addprefix $(OUTPUT_DIR),$(OUTPUT))
+
+all: $(NAME) $(BONUS)
 
 $(NAME): mv_c
 	$(CC) $(CFLAGS) $(LIB) $(INCLUDES) $(OPTION) $(NAME) $(SRCS)
 
 clean:
+	for file in $(OUTPUT); \
+	do > $${file}; done
 
 fclean: clean
 	/bin/rm -f $(NAME) $(BONUS)
