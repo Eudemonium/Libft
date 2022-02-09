@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 16:50:54 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/17 19:58:47 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/09 12:29:19 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,20 @@ int	test_ft_putendl_fd(void);
 int	test_ft_putnbr_fd(void);
 int	test_ft_putstr_fd(void);
 
+// Bonus Part
+int	test_ft_lstnew(void);
+int	test_ft_lstdelone(void);
+int	test_ft_lstdel(void);
+int	test_ft_lstadd(void);
+int	test_ft_lstiter(void);
+int	test_ft_lstmap(void);
+
+// Additional Functions
 int	test_ft_max(void);
 int	test_ft_pow(void);
 int	test_ft_isspace(void);
 int	test_ft_intlen(void);
 int	test_ft_strccpy(void);
+int	test_ft_lstaddback(void);
+int	test_ft_del(void);
 #endif

@@ -1,0 +1,60 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
+
+static void	printelem(t_list *elem)
+{
+		printf("%s\n", (char *)elem->content);
+}
+
+static void editelem(t_list *elem)
+{
+	memcpy(elem->content, "@", 1);
+}
+
+int	test_ft_lstiter(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_lstiter";
+	printf("\n%s\t", func);
+	{
+		t_list	*head = (t_list *)malloc(sizeof(t_list));
+		t_list	*mid = (t_list *)malloc(sizeof(t_list));
+		t_list	*tail = (t_list *)malloc(sizeof(t_list));
+		char	str1[] = "1";
+		char	str2[] = "2";
+		char	str3[] = "3";
+
+		head->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(head->content, str1, 2);
+		head->content_size = 2;
+		head->next = mid;
+
+		mid->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(mid->content, str2, 2);
+		mid->content_size = 2;
+		mid->next = tail;
+
+		tail->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(tail->content, str3, 2);
+		tail->content_size = 2;
+		tail->next = NULL;
+
+		printf("\nPrinting list...\n");
+		ft_lstiter(head, &printelem);
+		assert(strcmp(tail->content, str3) == 0, "Apply function that doesn't change list elements");
+		printf("Manipulating list contents...\n");
+		ft_lstiter(head, &editelem);
+		ft_lstiter(head, &printelem);
+		assert(strcmp(tail->content, "@") == 0, "Function changes list elements");
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

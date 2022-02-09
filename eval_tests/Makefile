@@ -59,6 +59,12 @@ FUNC += ft_putnbr
 FUNC += ft_putnbr_fd
 FUNC += ft_putstr
 FUNC += ft_putstr_fd
+FUNC += ft_lstnew
+FUNC += ft_lstdelone
+FUNC += ft_lstdel
+FUNC += ft_lstadd
+FUNC += ft_lstiter
+FUNC += ft_lstmap
 
 SRCS := $(addprefix $(SRC_DIR)test_,$(FUNC))
 SRCS := $(addsuffix .c,$(SRCS))
@@ -70,6 +76,8 @@ SRCS_B += $(SRC_DIR)test_ft_pow.c
 SRCS_B += $(SRC_DIR)test_ft_intlen.c
 SRCS_B += $(SRC_DIR)test_ft_isspace.c
 SRCS_B += $(SRC_DIR)test_ft_strccpy.c
+SRCS_B += $(SRC_DIR)test_ft_lstaddback.c
+SRCS_B += $(SRC_DIR)test_ft_del.c
 SRCS_B += $(SRC_DIR)test_libftbonus.c
 
 OUTPUT_DIR = output/

@@ -1,0 +1,59 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
+
+static void	del(void *content, size_t content_size)
+{
+	free(content);
+	(void)content_size;
+}
+
+static void	print_mem(void *ptr, size_t size)
+{
+	while (size > 0)
+	{
+		printf("%c", *(char *)ptr++);
+		size--;
+	}
+}
+
+int	test_ft_lstdel(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_lstdel";
+	printf("\n%s\t", func);
+	{
+		const char	test[] = "del";
+		t_list	*head = (t_list*)malloc(sizeof(t_list));
+		t_list	*tail = (t_list*)malloc(sizeof(t_list));
+		size_t	size = strlen(test) + 1;
+		char	*tail_content;
+
+		head->content_size = size;
+		head->content = (char *)malloc(sizeof(char) * size);
+		memcpy(head->content, test, size);
+		head->next = tail;
+
+		tail->content_size = size;
+		tail->content = (char *)malloc(sizeof(char) * size);
+		memcpy(tail->content, test, size);
+		tail->next = NULL;
+		tail_content = (char *)tail->content;
+
+		printf("\ntail.content before..%s\n", tail_content);
+		ft_lstdel(&head, &del);
+		printf("tail.content after..");
+		print_mem(tail_content, size);
+		printf("\n");
+		assert(head == NULL, "Link address not NULL.");
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

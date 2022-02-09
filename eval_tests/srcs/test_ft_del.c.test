@@ -1,0 +1,37 @@
+#include "libft.h"
+#include "libft_test.h"
+
+static void	print_mem(void *ptr, size_t size)
+{
+	while (size > 0)
+	{
+		printf("%c", *(char *)ptr++);
+		size--;
+	}
+}
+
+int	test_ft_del(void)
+{
+	char		*func = "ft_del";
+	printf("%s\t", func);
+	{
+		const char	test[] = "del";
+		t_list	*new = (t_list*)malloc(sizeof(t_list));
+		t_list	*tail = (t_list*)malloc(sizeof(t_list));
+		size_t	size = strlen(test) + 1;
+		char	*content;
+
+		new->content_size = size;
+		new->content = (char *)malloc(sizeof(char) * size);
+		memcpy(new->content, test, size);
+		new->next = tail;
+
+		content = (char *)new->content;
+		printf("\nLink content before..%s\n", content);
+		ft_del(new->content, size);
+		printf("Link content after..");
+		print_mem(content, size);
+		printf("\n");
+	}
+	return (0);
+}

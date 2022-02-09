@@ -3,12 +3,13 @@
 
 int	main(void)
 {
-	printf("Bonus Bonus");
+	printf("Bonus Functions");
 	test_ft_max();
 	test_ft_pow();
 	test_ft_isspace();
 	test_ft_intlen();
 	test_ft_strccpy();
-	//test_ft_lstaddback();
+	test_ft_lstaddback();
+	test_ft_del();
 	return (0);
 }

@@ -1,0 +1,35 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
+
+static void	del(void *content, size_t content_size)
+{
+	free(content);
+	(void)content_size;
+}
+
+int	test_ft_lstdelone(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_lstdelone";
+	printf("%s\t", func);
+	{
+		char	test[] = "basic ft_lstdelone";
+		t_list	*head = (t_list*)malloc(sizeof(t_list));
+		t_list	*tail = (t_list*)malloc(sizeof(t_list));
+		head->next = tail;
+		tail->next = NULL;
+		ft_lstdelone(&head, &del);
+		assert(head == NULL, test);
+		assert(tail != NULL, "Successive link NULL.");
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

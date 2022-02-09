@@ -1,0 +1,62 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test);}
+
+static void	printlst(t_list **alst)
+{
+	t_list *lst = *alst;
+	while (lst)
+	{
+		printf("%s\n", (char *)lst->content);
+		lst = lst->next;
+	}
+}
+
+int	test_ft_lstaddback(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_lstaddback";
+	printf("%s\t", func);
+	{
+		t_list	*ptr;
+		t_list	*head = (t_list *)malloc(sizeof(t_list));
+		t_list	*mid = (t_list *)malloc(sizeof(t_list));
+		t_list	*tail = (t_list *)malloc(sizeof(t_list));
+		char	str1[] = "1";
+		char	str2[] = "2";
+		char	str3[] = "3";
+
+		head->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(head->content, str1, 2);
+		head->content_size = 2;
+		head->next = NULL;
+
+		mid->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(mid->content, str2, 2);
+		mid->content_size = 2;
+		mid->next = NULL;
+
+		tail->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(tail->content, str3, 2);
+		tail->content_size = 2;
+		tail->next = NULL;
+
+		ft_lstaddback(&head, mid);
+		ft_lstaddback(&head, tail);
+		printf("\nConstructed list:\n");
+		printlst(&head);
+		ptr = head;
+		while (ptr->next)
+			ptr = ptr->next;
+		assert(strcmp(ptr->content, str3) == 0, "basic ft_lstaddback");
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}

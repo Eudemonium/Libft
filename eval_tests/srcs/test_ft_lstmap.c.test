@@ -1,0 +1,58 @@
+#include "libft.h"
+#include "libft_test.h"
+
+static void	printlst(t_list **alst)
+{
+	t_list *lst = *alst;
+	while (lst)
+	{
+		printf("%s\n", (char *)lst->content);
+		lst = lst->next;
+	}
+}
+
+static t_list *editelem(t_list *elem)
+{
+	t_list *new = (t_list *)malloc(sizeof(t_list));
+	new->content_size = elem->content_size;
+	new->content = (char *)malloc(new->content_size);
+	memcpy(new->content, elem->content, 2);
+	return (new);
+}
+
+int	test_ft_lstmap(void)
+{
+	char		*func = "ft_lstmap";
+	printf("\n%s\t", func);
+	{
+		t_list	*head = (t_list *)malloc(sizeof(t_list));
+		t_list	*mid = (t_list *)malloc(sizeof(t_list));
+		t_list	*tail = (t_list *)malloc(sizeof(t_list));
+		t_list	*new = NULL;
+		char	str1[] = "1";
+		char	str2[] = "2";
+		char	str3[] = "3";
+
+		head->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(head->content, str1, 2);
+		head->content_size = 2;
+		head->next = mid;
+
+		mid->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(mid->content, str2, 2);
+		mid->content_size = 2;
+		mid->next = tail;
+
+		tail->content = (char *)malloc(sizeof(char) * 2);
+		memcpy(tail->content, str3, 2);
+		tail->content_size = 2;
+		tail->next = NULL;
+
+		printf("\nOriginal list...\n");
+		printlst(&head);
+		new = ft_lstmap(head, &editelem);
+		printf("New list...\n");
+		printlst(&new);
+	}
+	return (0);
+}

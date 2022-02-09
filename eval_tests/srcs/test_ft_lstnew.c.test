@@ -1,0 +1,34 @@
+#include "libft.h"
+#include "libft_test.h"
+
+#ifdef assert
+#undef assert
+#endif
+
+#define assert(eval, test) \
+	if (eval) ++success; else {++failure; printf("\nfail: %s\n", test); }
+
+int	test_ft_lstnew(void)
+{
+	unsigned	success = 0;
+	unsigned	failure = 0;
+	char		*func = "ft_lstnew";
+	printf("%s\t", func);
+	{
+		char	test[] = "Basic lstnew";
+		char	*data = "content";
+		char	*expect = data;
+		t_list	*lst = ft_lstnew(data, strlen(data) + 1);
+		char	*actual = lst->content;
+		assert(strcmp(expect, actual) == 0, test);
+	}
+	{
+		char	test[] = "NULL content";
+		char	*expect = NULL;
+		t_list	*lst = ft_lstnew(NULL, 0);
+		char	*actual = lst->content;
+		assert(expect == actual, test);
+	}
+	printf("%i of %i tests passed.\n", success, (success + failure));
+	return (failure == 0);
+}
