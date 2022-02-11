@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:15:01 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/07 11:45:18 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/11 11:38:56 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	int	index;
-
 	if (s)
 	{
-		index = 0;
-		while (s[index])
-		{
-			ft_putchar_fd(s[index], fd);
-			index++;
-		}
+		write(fd, s, ft_strlen((char *)s));
 	}
 }

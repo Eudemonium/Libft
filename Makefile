@@ -1,9 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/02/11 10:52:56 by jagagas           #+#    #+#              #
+#    Updated: 2022/02/11 11:04:28 by jagagas          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I libft.h -c
+CFLAGS = -Wall -Wextra -Werror -c
 
 SRCS := ft_atoi.c
 SRCS += ft_bzero.c
+SRCS += ft_del.c
 SRCS += ft_intlen.c
 SRCS += ft_isalnum.c
 SRCS += ft_isalpha.c
@@ -63,13 +76,11 @@ SRCS += ft_lstnew.c
 SRCS += ft_lstdelone.c
 SRCS += ft_lstdel.c
 SRCS += ft_lstadd.c
+SRCS += ft_lstaddback.c
 SRCS += ft_lstiter.c
 SRCS += ft_lstmap.c
 
-SRCS += ft_lstaddback.c
-SRCS += ft_del.c
-
-OBJ = $(SRCS:%.c=%.o)
+OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
