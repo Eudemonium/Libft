@@ -3,7 +3,7 @@
 
 int	main(void)
 {
-	printf("Bonus Functions");
+	printf("Bonus Functions\n");
 	test_ft_max();
 	test_ft_pow();
 	test_ft_isspace();

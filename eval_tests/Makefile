@@ -3,7 +3,10 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I.. -I$(INCL_DIR)
 INCL_DIR = includes/
 HEADER = $(INCL_DIR)libft_test.h
-LIB = -L.. -lft
+LIB_ROOT = ..
+LIB_NAME = libft.a
+LDFLAGS = -L$(LIB_ROOT)
+LDLIBS = -lft
 SRC_DIR = srcs/
 OPTION = -o
 NAME = test_libft
@@ -93,8 +96,17 @@ OUTPUT := $(addprefix $(OUTPUT_DIR),$(OUTPUT))
 
 all: $(NAME) $(BONUS)
 
-$(NAME): mv_c
-	$(CC) $(CFLAGS) $(LIB) $(INCLUDES) $(OPTION) $(NAME) $(SRCS)
+$(NAME): mv_c lib
+	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) $(INCLUDES) $(OPTION) $(NAME) $(SRCS)
+
+lib:
+	$(MAKE) -C $(LIB_ROOT)
+
+lib_fclean:
+	$(MAKE) fclean -C $(LIB_ROOT)
+
+lib_re:
+	$(MAKE) re -C $(LIB_ROOT)
 
 clean:
 	for file in $(OUTPUT); \
@@ -103,8 +115,8 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME) $(BONUS)
 
-$(BONUS): mv_c
-	$(CC) $(CFLAGS) $(LIB) $(INCLUDES) $(OPTION) $(BONUS) $(SRCS_B)
+$(BONUS): mv_c lib
+	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) $(INCLUDES) $(OPTION) $(BONUS) $(SRCS_B)
 
 mv_c:
 	for file in $(SRCS) $(SRCS_B); \
@@ -124,6 +136,6 @@ mv_test:
 	then mv $(HEADER) $(HEADER).test; \
 	fi;
 
-re: fclean all
+re: fclean lib_fclean all
 
-.PHONY: all mv_c mv_test clean fclean re
+.PHONY: all lib lib_fclean lib_re mv_c mv_test clean fclean re
