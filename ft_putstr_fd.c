@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:15:01 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/11 11:38:56 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/15 16:51:50 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_putstr_fd(char const *s, int fd)
 {
 	if (s)
 	{
-		write(fd, s, ft_strlen((char *)s));
+		write(fd, s, ft_strlen(s));
 	}
 }

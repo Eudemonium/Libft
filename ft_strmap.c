@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:35:31 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/04 16:42:25 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/15 16:53:31 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 
 	if (s == NULL)
 		return (NULL);
-	size = ft_strlen((char *)s);
+	size = ft_strlen(s);
 	str = ft_strnew(size);
 	if (str != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 08:41:52 by jagagas           #+#    #+#             */
-/*   Updated: 2021/12/04 16:09:17 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/15 16:52:50 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_strclr(char *s)
 {
 	if (s != NULL)
-		ft_bzero(s, ft_strlen(s));
+		ft_bzero(s, ft_strlen((const char *)s));
 }

@@ -6,13 +6,13 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:30:34 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/17 21:09:06 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/15 16:54:42 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	counter;
 
