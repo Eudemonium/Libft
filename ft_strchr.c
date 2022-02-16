@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:19:52 by jagagas           #+#    #+#             */
-/*   Updated: 2021/11/22 23:33:35 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/16 12:42:42 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ char	*ft_strchr(const char *s, int c)
 	char	*ptr;
 
 	ptr = (char *)s;
-	while (ptr[0])
+	while (*ptr)
 	{
-		if (ptr[0] == (char)c)
+		if (*ptr == (char)c)
 			return (ptr);
 		ptr++;
 	}
-	if (c == '\0' && ptr[0] == '\0')
+	if (c == '\0' && *ptr == '\0')
 		return (ptr);
 	return (NULL);
 }
