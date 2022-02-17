@@ -15,19 +15,19 @@ int	test_ft_strlen(void)
 	char		*func = "ft_strlen";
 	printf("%s\t", func);
 	{
-		char	src[] = "000000";
+		const char	src[] = "000000";
 		int		expect = strlen(src);
 		int		actual = ft_strlen(src);
 		assert(expect == actual, src);
 	}
 	{
-		char	src[] = "000 000 ";
+		const char	src[] = "000 000 ";
 		int		expect = strlen(src);
 		int		actual = ft_strlen(src);
 		assert(expect == actual, src);
 	}
 	{
-		char	src[] = "";
+		const char	src[] = "";
 		int		expect = strlen(src);
 		int		actual = ft_strlen(src);
 		assert(expect == actual, src);
