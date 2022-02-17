@@ -6,7 +6,7 @@
 #    By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/11 10:52:56 by jagagas           #+#    #+#              #
-#    Updated: 2022/02/11 11:04:28 by jagagas          ###   ########.fr        #
+#    Updated: 2022/02/17 12:51:17 by jagagas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,3 +95,5 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
