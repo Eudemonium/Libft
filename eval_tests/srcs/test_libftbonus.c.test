@@ -5,6 +5,7 @@ int	main(void)
 {
 	printf("Bonus Functions\n");
 	test_ft_max();
+	test_ft_min();
 	test_ft_pow();
 	test_ft_isspace();
 	test_ft_intlen();

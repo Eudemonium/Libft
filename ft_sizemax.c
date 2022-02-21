@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_sizemax.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 11:25:16 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/20 23:56:47 by jagagas          ###   ########.fr       */
+/*   Created: 2021/11/29 15:36:58 by jagagas           #+#    #+#             */
+/*   Updated: 2022/02/21 08:13:13 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t len)
+size_t	ft_sizemax(size_t a, size_t b)
 {
-	unsigned char		*p_dst;
-	const unsigned char	*p_src;
-
-	p_dst = (unsigned char *)dst;
-	p_src = (const unsigned char *)src;
-	while (len--)
-	{
-		*p_dst = *p_src;
-		p_dst++;
-		if (*p_src == (unsigned char)c)
-			return ((void *)p_dst);
-		p_src++;
-	}
-	return (NULL);
+	if (a > b)
+		return (a);
+	return (b);
 }

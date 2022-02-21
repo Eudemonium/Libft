@@ -6,7 +6,7 @@
 #    By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/11 10:52:56 by jagagas           #+#    #+#              #
-#    Updated: 2022/02/17 12:51:17 by jagagas          ###   ########.fr        #
+#    Updated: 2022/02/21 08:17:46 by jagagas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS += ft_isprint.c
 SRCS += ft_isspace.c
 SRCS += ft_itoa.c
 SRCS += ft_max.c
+SRCS += ft_min.c
 SRCS += ft_memalloc.c
 SRCS += ft_memccpy.c
 SRCS += ft_memchr.c
@@ -43,6 +44,8 @@ SRCS += ft_putnbr_fd.c
 SRCS += ft_putnbr.c
 SRCS += ft_putstr_fd.c
 SRCS += ft_putstr.c
+SRCS += ft_sizemax.c
+SRCS += ft_sizemin.c
 SRCS += ft_strcat.c
 SRCS += ft_strchr.c
 SRCS += ft_strccpy.c

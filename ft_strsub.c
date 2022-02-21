@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 16:57:47 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/11 10:40:18 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/21 08:35:25 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len)
 			s++;
 		if (*s)
 			ft_strncpy(str, s, len);
-		return (str);
 	}
-	return (NULL);
+	return (str);
 }

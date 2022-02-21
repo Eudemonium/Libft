@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 16:50:54 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/09 12:29:19 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/21 08:47:44 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	test_ft_lstmap(void);
 
 // Additional Functions
 int	test_ft_max(void);
+int	test_ft_min(void);
 int	test_ft_pow(void);
 int	test_ft_isspace(void);
 int	test_ft_intlen(void);

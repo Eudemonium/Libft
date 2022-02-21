@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jagagas <jagagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:25:19 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/16 12:41:11 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/21 08:25:32 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,17 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*ptr_s;
-	size_t			count;
+	size_t			index;
 
 	ptr_s = (unsigned char *)s;
-	count = 0;
-	while (count < n)
+	index = 0;
+	while (index < n)
 	{
-		if (*ptr_s == (unsigned char)c)
+		if (ptr_s[index] == (unsigned char)c)
 		{
-			return (ptr_s);
+			return (&ptr_s[index]);
 		}
-		count++;
-		ptr_s++;
+		index++;
 	}
 	return (NULL);
 }

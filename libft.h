@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:31:05 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/17 12:46:14 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/21 08:13:53 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ void			ft_putendl(char const *s);
 unsigned int	ft_intlen(int n);
 unsigned int	ft_pow(int base, unsigned int exponent);
 int				ft_max(int a, int b);
-int				ft_isspace(char c);
+int				ft_min(int a, int b);
+size_t			ft_sizemax(size_t a, size_t b);
+size_t			ft_sizemin(size_t a, size_t b);
+int				ft_isspace(int c);
 char			*ft_strccpy(char *dst, char const *src, char c);
 
 typedef struct s_list

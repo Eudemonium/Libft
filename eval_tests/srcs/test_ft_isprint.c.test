@@ -6,7 +6,7 @@
 #endif
 
 #define assert(eval, test) \
-	if (eval) ++success; else {++failure; printf("\nfail: \"%c\"\n", test); }
+	if (eval) ++success; else {++failure; printf("\nfail: \"%d\"\n", test); }
 
 int	test_ft_isprint(void)
 {
@@ -45,7 +45,7 @@ int	test_ft_isprint(void)
 		assert(expect == actual, num);
 	}
 	{
-		int		num = 128;
+		int		num = 127;
 		int		expect = isprint(num);
 		int		actual = ft_isprint(num);
 		assert(expect == actual, num);

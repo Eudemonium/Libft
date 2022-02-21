@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 21:34:00 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/07 11:46:20 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/21 08:39:14 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ static unsigned int	word_count(char const *s, char delim)
 	int		word;
 
 	count = 0;
+	word = -1;
 	while (*s)
 	{
 		if (*s == delim)
 			word = 0;
 		else
 		{
-			if (word == 0)
+			if (word != 1)
 			{
 				count++;
 				word = 1;
@@ -64,7 +65,7 @@ char	**ft_strsplit(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	array = (char **)malloc(sizeof(char *) * word_count(s, c) + 1);
+	array = (char **)ft_memalloc(sizeof(char *) * (word_count(s, c) + 1));
 	if (!array)
 		return (NULL);
 	index = 0;
@@ -81,6 +82,6 @@ char	**ft_strsplit(char const *s, char c)
 			s = s + ft_strlen(array[index++]);
 		}
 	}
-	array[index] = 0;
+	array[index] = NULL;
 	return (array);
 }

@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 12:40:26 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/07 11:49:05 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/18 17:10:25 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		if (haystack[h_index] == needle[0])
 		{
 			n_index = 0;
-			while (needle[n_index] && haystack[h_index + n_index] && \
-					h_index + n_index <= len)
+			while (needle[n_index] && haystack[h_index + n_index]
+				&& h_index + n_index <= len)
 			{
 				if (haystack[h_index + n_index] != needle[n_index])
 					break ;

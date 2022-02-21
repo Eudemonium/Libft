@@ -75,6 +75,7 @@ SRCS += $(SRC_DIR)test_libft.c
 
 BONUS = test_bonus
 SRCS_B += $(SRC_DIR)test_ft_max.c
+SRCS_B += $(SRC_DIR)test_ft_min.c
 SRCS_B += $(SRC_DIR)test_ft_pow.c
 SRCS_B += $(SRC_DIR)test_ft_intlen.c
 SRCS_B += $(SRC_DIR)test_ft_isspace.c

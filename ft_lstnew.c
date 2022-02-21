@@ -6,7 +6,7 @@
 /*   By: jagagas <jagagas@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:04:13 by jagagas           #+#    #+#             */
-/*   Updated: 2022/02/07 11:44:44 by jagagas          ###   ########.fr       */
+/*   Updated: 2022/02/20 23:50:42 by jagagas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*lst;
 
-	lst = (t_list *)malloc(sizeof(t_list));
+	lst = (t_list *)ft_memalloc(sizeof(t_list));
 	if (lst != NULL)
 	{
 		if (content)
 		{
-			lst->content = (void *)malloc(content_size);
+			lst->content = (void *)ft_memalloc(content_size);
 			if (lst->content)
 				ft_memcpy(lst->content, content, content_size);
 			lst->content_size = content_size;
